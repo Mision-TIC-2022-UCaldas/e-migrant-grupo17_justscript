@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "HRPyyztjzrq/DVrDrCLh3dTXY6tee5sol39IjjrVgXoJAp3pXI+JAwvYUzqs2t1ZGrZNuGBqseEwaLSVCdENyQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\marfe\\Documents\\JustScriptTeam\\Emigrant\\e-migrant-grupo17_justscript\\EMigrant.App\\EMigrant.App.Persistencia\\EMigrant.App.Persistencia.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\marfe\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\marfe\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
