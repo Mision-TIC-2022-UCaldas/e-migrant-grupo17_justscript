@@ -1,9 +1,9 @@
 namespace EMigrant.App.Dominio{
-    public class Educacion/ valor que se mantiene en el tiempo = constante
+    public class Educacion
     {
-        public string Descripcion{get;set}
+        public string Descripcion{get;set;}
          
-        public PrioridadNecesidades PrioridadNecesidades{get;set}
+        public PrioridadNecesidades PrioridadNecesidades{get;set;}
 
    
 

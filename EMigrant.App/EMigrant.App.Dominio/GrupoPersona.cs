@@ -1,8 +1,8 @@
 namespace EMigrant.App.Dominio{
-    public class GrupoPersona : Persona / valor que se mantiene en el tiempo = constante
+    public class GrupoPersona : Persona 
     {
                 
-        public TipoPersona TipoPersona{get;set}
+        public TipoPersona TipoPersona{get;set;}
 
     } 
 }

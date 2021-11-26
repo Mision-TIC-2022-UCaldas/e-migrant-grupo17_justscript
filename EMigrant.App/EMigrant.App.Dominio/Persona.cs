@@ -1,3 +1,5 @@
+using System;
+
 namespace EMigrant.App.Dominio{
     public class Persona{
 
@@ -6,7 +8,7 @@ namespace EMigrant.App.Dominio{
         public string Apellidos{get;set;}
         public TipoDoc TipoDocumento{get;set;}
         public string NumeroDocumento{get;set;}
-        public Date FNacimiento{get;set;}
+        public DateTime FNacimiento{get;set;}
         public string Correo{get;set;}
         public string Telefono{get;set;}
         public string Direccion{get;set;}
