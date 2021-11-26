@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "I5baRl92iHLD2zjuN7breyGBqoG6hHFXV6Mlmc/gP5tYrZCt9a2yQKe7qT0neqWKOHPkXbB0sV0dQ8Au/YyM9A==",
+  "dgSpecHash": "mn9yQmZM1CuQ5ygW48eoeSJwR6OS6rXFd9VwQg/khyutMKvoQcZsooJIIqwpiyipzx/cTIs1oz/wxSIc0F/iNQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\marfe\\Documents\\JustScriptTeam\\Emigrant\\e-migrant-grupo17_justscript\\EMigrant.App\\EMigrant.App.Dominio\\EMigrant.App.Dominio.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\marfe\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\marfe\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\marfe\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }
