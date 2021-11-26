@@ -10,6 +10,12 @@ namespace EMigrant.App.Dominio{
         public DateTime FSolicitud{get;set;}
         public DateTime FechaRespuesta{get;set;}
         public string EstadoSolicitud{get;set;}
+
+        public bool ServicioSolicitado{get;set;} // verdadero: lo pide la persona, falso: lo asigna la institucion
+        
+        public bool ServicioCancelado{get;set;}
+
+        public string EvaluarServicio{get;set;} // (Malo, Regular, Bueno, Muy Bueno, Excelente)
         
     
     }

@@ -3,9 +3,13 @@ namespace EMigrant.App.Dominio{
     {
         Salud,
 
-        Alimentacion,
+        Jurídico,
 
         Empleo,
+
+        Víveres,
+
+        Comida_preparada,
 
         Alojamiento_temporal,
 
@@ -13,7 +17,7 @@ namespace EMigrant.App.Dominio{
 
         Educacion,
 
-        Ayuda_legal
+        Otros
 
     } 
 }
