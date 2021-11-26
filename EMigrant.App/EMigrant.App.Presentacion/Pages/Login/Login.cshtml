@@ -1,12 +1,14 @@
-@* @page
-@model Consolas.Front.Pages.LoginModel
+﻿@page
+@model EMigrant.App.Presentacion.Pages.LoginModel
 @{
 }
+
+
 
 <head>
     <meta charset="utf-8">
     <title>Login</title>
-     <meta name="author" content="Grupo 17 JustScript">
+    <meta name="author" content="Equipo Masters MinTIC2022 Ciclo 3">
     <meta name="description" content="Login">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="site.css" rel="stylesheet" type="text/css" />
@@ -36,11 +38,11 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label" >Contraseña:</label>
-                        <input asp-for="@Model.clave" type="password" class="form-control"/>
-                        <span class="text-danger">@Model.Alertaclave</span>
+                        <input asp-for="@Model.Clave" type="password" class="form-control"/>
+                        <span class="text-danger">@Model.AlertaPassword</span>
                         	  					
                     </div>
-                    @*<small><p><a href="../CambioContrasena/CambioContrasena" target="_blank">Olvidé mi contraseña</a></p></small><br><br>
+                    @*<small><p><a href="../CambioContrasena/CambioContrasena" target="_blank">Olvidé mi contraseña</a></p></small><br><br>*@
                     <div class = "form-group"> 
                         <input type="submit" value="Ingresar"/>
                     </div>
@@ -48,14 +50,25 @@
                              
                    </nav>
  	    </section>
+
+            <section  id="mainNota">
+
+	    <article>
+                 <img Id="img" src="/images/alert.jpg" width="80" alt="Atencion" height="80" /> 
+
+		 <h2>¡Tenga en Cuenta!</h2><br>
+		 <p> Si es primera vez que ingresa, el sistema le solicitará actualizar su contraseña. Recuerde, su primera contraseña corresponde a su número de cédula</p>
+		 <p> Su Usuario siempre corresponderá a su Código de Empleado </p>
+         <p> Si presenta inconvenientes para ingresar, por favor reportarlo al correo: <b> adminsystem.exito@exito.com</b></p>
+            </article>
+            </section>
+
             
         </main>
         
     </div>
     <footer>
-        <small>Equipo JustScript</small>
+        <small>2021 Consolas Exito - Equipo Masters - All rights reserved</small>
     </footer>
 
 </body>
-
- *@
