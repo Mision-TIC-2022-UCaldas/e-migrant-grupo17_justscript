@@ -11,6 +11,10 @@ using Microsoft.Extensions.Hosting;
 using EMigrant.App.Persistencia;
 using EMigrant.App.Dominio;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.CookiePolicy;
+using Google.Apis.Auth.AspNetCore3;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 
 
@@ -32,7 +36,35 @@ namespace EMigrant.App.Presentacion
             services.AddDbContext<Conexion>();
             services.AddHttpContextAccessor();
             services.AddSession();
-            services.AddAuthentication().AddGoogle(options =>
+
+            services.AddControllersWithViews()
+            .AddSessionStateTempDataProvider();
+
+            services.AddRazorPages().AddSessionStateTempDataProvider();
+
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromHours(4);
+                options.Cookie.SecurePolicy = Microsoft.AspNetCore.Http.CookieSecurePolicy.Always;
+                options.Cookie.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Strict;
+                options.Cookie.HttpOnly = true;
+                // Make the session cookie essential if you wish
+                //options.Cookie.IsEssential = true;
+            });
+
+            
+            
+            services.AddAuthentication(o =>
+        {
+            // This forces challenge results to be handled by Google OpenID Handler, so there's no
+            // need to add an AccountController that emits challenges for Login.
+            o.DefaultChallengeScheme = GoogleOpenIdConnectDefaults.AuthenticationScheme;
+            // This forces forbid results to be handled by Google OpenID Handler, which checks if
+            // extra scopes are required and does automatic incremental auth.
+            o.DefaultForbidScheme = GoogleOpenIdConnectDefaults.AuthenticationScheme;
+            // Default scheme that will handle everything else.
+            // Once a user is authenticated, the OAuth2 token info is stored in cookies.
+            o.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        }).AddCookie().AddGoogle(options =>
                 {
                     IConfigurationSection googleAuthNSection =
                         Configuration.GetSection("Authentication:Google");
@@ -62,10 +94,11 @@ namespace EMigrant.App.Presentacion
 
             app.UseRouting();
 
+            
+
             app.UseAuthorization();
-
-            app.UseSession(); 
-
+            app.UseCookiePolicy();
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
