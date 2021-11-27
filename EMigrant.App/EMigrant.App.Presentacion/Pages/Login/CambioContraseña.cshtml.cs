@@ -31,17 +31,49 @@ namespace EMigrant.App.Presentacion.Pages
         public IActionResult OnPost()
         {
             Conexion conn = new Conexion();
-            var Username = HttpContext.Session.GetString("username");
-            HttpContext.Session.Remove("username");
-            migrante migrante = conn.migrantes.FirstOrDefault(e => e.Usuario == Username);
-            if(!password.Equals(RepeatPassword)){
-                MensajePassword = "Las contraseñas no coinciden";
-                return Page();
-            }else{
-                migrante.Clave = password;
-                conn.SaveChanges();
-                return RedirectToPage("../Login/Login");
+            var Username = HttpContext.Session.GetString("usernamemigrante");
+            if (Username != null)
+            {
+                //HttpContext.Session.Remove("username");
+                migrante migrante = conn.migrantes.FirstOrDefault(e => e.Usuario == Username);
+                if (!password.Equals(RepeatPassword))
+                {
+                    MensajePassword = "Las contraseñas no coinciden";
+                    return Page();
+                }
+                else
+                {
+                    migrante.Clave = password;
+                    conn.SaveChanges();
+                    return RedirectToPage("../Login/Login");
+                }
             }
+            else
+            {
+                 var Username2 = HttpContext.Session.GetString("usernameinstitucion");
+            if (Username2 != null)
+            {
+                //HttpContext.Session.Remove("username");
+                Institucion institucion = conn.Instituciones.FirstOrDefault(e => e.Usuario == Username2);
+                if (!password.Equals(RepeatPassword))
+                {
+                    MensajePassword = "Las contraseñas no coinciden";
+                    return Page();
+                }
+                else
+                {
+                    institucion.Clave = password;
+                    conn.SaveChanges();
+                    return RedirectToPage("../Login/Login");
+                }
+            }
+            else
+            {
+                return Page();
+            }
+
+
+        }
+        }
     }
-}
 }

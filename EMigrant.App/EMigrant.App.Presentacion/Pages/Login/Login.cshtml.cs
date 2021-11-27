@@ -28,16 +28,17 @@ namespace EMigrant.App.Presentacion.Pages
 
         public void OnGet()
         {
-         /*   var passwordValidado = HttpContext.Session.GetString("passwordValidado");
-            if(passwordValidado != null){
-                PasswordValidado = true;
-            }else{
-                PasswordValidado = false;
-            }*/
+            /*   var passwordValidado = HttpContext.Session.GetString("passwordValidado");
+               if(passwordValidado != null){
+                   PasswordValidado = true;
+               }else{
+                   PasswordValidado = false;
+               }*/
 
         }
 
-        public IActionResult OnPost(){
+        public IActionResult OnPost()
+        {
 
             Conexion conexion = new Conexion();
             migrante migrante = conexion.migrantes.FirstOrDefault(e => e.Usuario == usuario);
@@ -46,18 +47,48 @@ namespace EMigrant.App.Presentacion.Pages
                 if (migrante.Clave.Equals(clave))
                 {
                     Console.WriteLine("Si esta entrando al if"); //comprobación si entra al if
-                    HttpContext.Session.SetString("username", usuario);
+                    HttpContext.Session.SetString("usernamemigrante", usuario);
                     //HttpContext.Session.SetString("passwordValidado", migrante.Usuario.ToString());
                     return RedirectToPage("../Inicio/Inicio");
-                }else{
+                }
+                else
+                {
                     AlertaPassword = "La Contraseña no es valida";
                     return Page();
                 }
-            }else{
-                 AlertaUsuario = "El usuario no existe";
-               return Page();
+            }
+            else
+            {
+                Institucion institucion = conexion.Instituciones.FirstOrDefault(e => e.Usuario == usuario);
 
+                if (institucion != null)
+                {
+                    if (institucion.Clave.Equals(clave))
+                    {
+                        Console.WriteLine("Si esta entrando al if 2"); //comprobación si entra al if
+                        HttpContext.Session.SetString("usernameinstitucion", usuario);
+                        //HttpContext.Session.SetString("passwordValidado", migrante.Usuario.ToString());
+                        return RedirectToPage("../Inicio/Inicio");
+                    }
+                    else
+                    {
+                        AlertaPassword = "La Contraseña no es valida";
+                        return Page();
+                    }
+                }  else{
+                    AlertaUsuario = "El usuario no existe";
+                    return Page();
+                }
+
+
+
+
+
+
+
+
+
+                }
             }
         }
     }
-}

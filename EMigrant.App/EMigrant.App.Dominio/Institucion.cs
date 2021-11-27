@@ -14,6 +14,13 @@ namespace EMigrant.App.Dominio{
         public string PagWeb{get;set;}
         public string Sector{get;set;} 
         public string TipoServicio{get;set;}
+        
+        public string Usuario {get;set;}
+
+        public string Clave {get;set;}
+
+        public string Cat {get;set;}
+        
     
     }
 }

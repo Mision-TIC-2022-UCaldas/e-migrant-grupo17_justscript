@@ -36,15 +36,11 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Login/Login">Login</a>
                         </li>*@
 
+
+                         @if (@HttpContextAccessor.HttpContext.Session.GetString("usernamemigrante") != null){
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/CrudMigrante/Index">Migrante</a>
                         </li> 
-                        
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/CrudInstitucion/Create">Crear Institucion</a>
-                        </li>
-                         @if (@HttpContextAccessor.HttpContext.Session.GetString("username") != null){
-                        
                         
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Login/CambioContraseña">Cambio Contraseña</a>
@@ -52,6 +48,22 @@
 
 
                            }
+                           
+                         @if (@HttpContextAccessor.HttpContext.Session.GetString("usernameinstitucion") != null){
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Login/CambioContraseña">Cambio Contraseña</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/CrudInstitucion/Create">Crear Institucion</a>
+                        </li>
+
+                           }
+
+
                     </ul>
                 </div>
             </div>
