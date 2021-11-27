@@ -37,17 +37,17 @@ namespace EMigrant.App.Presentacion.Pages.CrudInstitucion
             {
                 return Page();
             }
-            
+            nit = Institucion.Nit;
              Institucion prueba = _context.Instituciones.FirstOrDefault(e => e.Nit == nit );
 
-
+    
             if(prueba == null){
                  _context.Instituciones.Add(Institucion);
                  await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");
 
             }else{
-                Error = "Error";
+                Error = "Error, el Nit ya exite, por favor intentelo con otro";
                 return Page();
             }
 

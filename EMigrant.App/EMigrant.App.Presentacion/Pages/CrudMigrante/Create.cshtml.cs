@@ -26,6 +26,12 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
 
         [BindProperty]
         public migrante migrante { get; set; }
+        
+        [BindProperty]
+        public string usuario { get; set; }
+         [BindProperty]
+        public string Error {get;set;}
+        
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -35,10 +41,21 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
             {
                 return Page();
             }
+            usuario = migrante.Usuario;
+            migrante migrante2 = _context.migrantes.FirstOrDefault(e => e.Usuario == usuario);
+
+
+            if(migrante2 == null){
             _context.migrantes.Add(migrante);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
+
+            }else{
+                Error = "El usuario ya exite, intentelo con otro";
+                return Page();
+            }
+
         }
     }
 }
