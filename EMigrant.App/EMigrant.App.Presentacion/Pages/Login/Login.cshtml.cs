@@ -32,8 +32,8 @@ namespace EMigrant.App.Presentacion.Pages
 
         }
 
-        public IActionResult OnPost()
-        {
+        public IActionResult OnPost(){
+
             Conexion conexion = new Conexion();
             migrante migrante = conexion.migrantes.FirstOrDefault(e => e.Usuario == usuario);
             if (migrante != null)
@@ -41,10 +41,15 @@ namespace EMigrant.App.Presentacion.Pages
                 if (migrante.Clave.Equals(clave))
                 {
                     Console.WriteLine("Si esta entrando al if"); //comprobación si entra al if
-                    HttpContext.Session.SetString("username", usuario);
+                    //HttpContext.Session.SetString("username", usuario);
                     return RedirectToPage("../CrudMigrante/Index");
-                }
+                }else{
 
+                    return Page();
+                }
+            }else{
+                 AlertaUsuario = "El usuario no existe";
+               return Page();
 
             }
         }
