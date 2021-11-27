@@ -1,0 +1,76 @@
+@page
+@model EMigrant.App.Presentacion.Pages.CrudInstitucion.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Institucion</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Institucion.RazonSocial)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Institucion.RazonSocial)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Institucion.Nit)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Institucion.Nit)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Institucion.Ciudad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Institucion.Ciudad)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Institucion.Direccion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Institucion.Direccion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Institucion.Telefono)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Institucion.Telefono)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Institucion.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Institucion.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Institucion.PagWeb)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Institucion.PagWeb)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Institucion.Sector)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Institucion.Sector)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Institucion.TipoServicio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Institucion.TipoServicio)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Institucion.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
