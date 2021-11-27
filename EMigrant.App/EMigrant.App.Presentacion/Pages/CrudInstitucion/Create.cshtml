@@ -16,12 +16,12 @@
             <div class="form-group">
                 <label asp-for="Institucion.RazonSocial" class="control-label"></label>
                 <input asp-for="Institucion.RazonSocial" class="form-control" required />
-                <span class="text-danger">@Model.ErrorInstitucion</span>
+                <span asp-validation-for="Institucion.RazonSocial"class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Institucion.Nit" class="control-label"></label>
                 <input asp-for="Institucion.Nit" class="form-control" required/>
-                <span asp-validation-for="Institucion.Nit" class="text-danger"></span>
+                <span  class="text-danger">@Model.ErrorInstitucion</span>
             </div>
             <div class="form-group">
                 <label asp-for="Institucion.Ciudad" class="control-label"></label>
@@ -72,9 +72,7 @@
                   <option value ="5">Alojamiento Permanente</option>
                   <option value ="6">Educación</option>
                   <option value ="7">Otro</option>
-
                 </select>  
-
                 <span asp-validation-for="Institucion.TipoServicio" class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -51,19 +51,24 @@ namespace EMigrant.App.Presentacion.Pages.CrudInstitucion
                 return Page();
             }
 
-            Conexion conn = new Conexion();
-            try{
-                Institucion prueba = _context.Instituciones.FirstOrDefault(e => e.Nit == NitInstitucion);
+            NitInstitucion = Institucion.Nit;
+            
+            Institucion prueba = _context.Instituciones.FirstOrDefault(e => e.Nit == NitInstitucion);
 
-            }catch{
-            conn.Instituciones.Add(Institucion);
-            conn.SaveChanges();
+     
+            if(prueba == null){
+
+            _context.Instituciones.Add(Institucion);
+            _context.SaveChanges();
             return RedirectToPage("./Index");                
 
+            }else{
+                            
+                ErrorInstitucion = "Error, el nit  ya esta registrado";
+                return Page();
+
             }
-            
-            ErrorInstitucion = "Error";
-            return Page();
+
     
             }
     

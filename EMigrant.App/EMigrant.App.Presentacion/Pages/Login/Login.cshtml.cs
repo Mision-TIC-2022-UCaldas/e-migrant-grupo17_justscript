@@ -34,6 +34,7 @@ namespace EMigrant.App.Presentacion.Pages
             }else{
                 PasswordValidado = false;
             }*/
+            var U = HttpContext.Session.GetString("Usuario");
 
         }
 
@@ -41,12 +42,15 @@ namespace EMigrant.App.Presentacion.Pages
 
             Conexion conexion = new Conexion();
             migrante migrante = conexion.migrantes.FirstOrDefault(e => e.Usuario == usuario);
+
             if (migrante != null)
             {
                 if (migrante.Clave.Equals(clave))
                 {
                     Console.WriteLine("Si esta entrando al if"); //comprobación si entra al if
                     HttpContext.Session.SetString("username", usuario);
+                    HttpContext.Session.SetString("Usuario", usuario);
+
                     //HttpContext.Session.SetString("passwordValidado", migrante.Usuario.ToString());
                     return RedirectToPage("../Inicio/Inicio");
                 }else{
