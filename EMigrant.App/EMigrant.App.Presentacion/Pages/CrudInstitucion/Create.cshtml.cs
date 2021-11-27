@@ -42,19 +42,43 @@ namespace EMigrant.App.Presentacion.Pages.CrudInstitucion
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        
+         public IActionResult OnPost()
         {
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
+            Conexion conn = new Conexion();
+            try{
+                Institucion prueba = _context.Instituciones.FirstOrDefault(e => e.Nit == NitInstitucion);
 
-            _context.Instituciones.Add(Institucion);
-            await _context.SaveChangesAsync();
-            return RedirectToPage("./Index");
+            }catch{
+            conn.Instituciones.Add(Institucion);
+            conn.SaveChanges();
+            return RedirectToPage("./Index");                
 
-        }
+            }
+            
+            ErrorInstitucion = "Error";
+            return Page();
+    
+            }
+    
+        
+        
+        // public async Task<IActionResult> OnPostAsync()
+        // {
+
+
+
+        //     _context.Instituciones.Add(Institucion);
+        //     await _context.SaveChangesAsync();
+        //     return RedirectToPage("./Index");
+
+        // }
 
 
     }

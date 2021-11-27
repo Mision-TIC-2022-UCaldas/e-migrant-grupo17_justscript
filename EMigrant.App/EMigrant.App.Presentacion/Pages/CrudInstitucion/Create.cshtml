@@ -51,13 +51,12 @@
             <div class="form-group">
                 <label asp-for="Institucion.Sector" class="control-label"></label>
                 <select asp-for="Institucion.Sector"  class="form-control" required>
-                    <p>
-                    <input type="checkbox" >Público<br>
-                    @* <option value ="0">Público</option>
+    
+                 <option value ="0">Público</option>
                     <option value ="1">Privado</option>
                     <option value ="2">Sin ánimo de lucro</option>
                     <option value ="3">No gubernamental</option>
-                    <option value ="4">Otro</option> *@
+                    <option value ="4">Otro</option> 
                     </p>
                 </select>  
                 <span asp-validation-for="Institucion.Sector" class="text-danger"></span>          
