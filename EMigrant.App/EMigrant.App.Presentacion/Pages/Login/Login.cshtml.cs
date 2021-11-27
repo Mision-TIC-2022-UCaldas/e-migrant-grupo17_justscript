@@ -46,9 +46,9 @@ namespace EMigrant.App.Presentacion.Pages
                 if (migrante.Clave.Equals(clave))
                 {
                     Console.WriteLine("Si esta entrando al if"); //comprobación si entra al if
-                    //HttpContext.Session.SetString("username", usuario);
-                    HttpContext.Session.SetString("passwordValidado", migrante.Usuario.ToString());
-                    return RedirectToPage("../Index");
+                    HttpContext.Session.SetString("username", usuario);
+                    //HttpContext.Session.SetString("passwordValidado", migrante.Usuario.ToString());
+                    return RedirectToPage("../Inicio/Inicio");
                 }else{
                     AlertaPassword = "La Contraseña no es valida";
                     return Page();
