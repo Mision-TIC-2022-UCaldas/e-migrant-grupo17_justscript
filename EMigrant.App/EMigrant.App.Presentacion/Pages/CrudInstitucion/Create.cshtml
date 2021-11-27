@@ -15,27 +15,27 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Institucion.RazonSocial" class="control-label"></label>
-                <input asp-for="Institucion.RazonSocial" class="form-control" required />
-                <span class="text-danger">@Model.ErrorInstitucion</span>
+                <input asp-for="Institucion.RazonSocial" class="form-control" />
+                <span asp-validation-for="Institucion.RazonSocial" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Institucion.Nit" class="control-label"></label>
-                <input asp-for="Institucion.Nit" class="form-control" required/>
-                <span asp-validation-for="Institucion.Nit" class="text-danger"></span>
+                <input asp-for="Institucion.Nit" class="form-control" />
+                <span  class="text-danger">@Model.Error</span>
             </div>
             <div class="form-group">
                 <label asp-for="Institucion.Ciudad" class="control-label"></label>
-                <input asp-for="Institucion.Ciudad" class="form-control"required />
+                <input asp-for="Institucion.Ciudad" class="form-control" />
                 <span asp-validation-for="Institucion.Ciudad" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Institucion.Direccion" class="control-label"></label>
-                <input asp-for="Institucion.Direccion" class="form-control"required />
+                <input asp-for="Institucion.Direccion" class="form-control" />
                 <span asp-validation-for="Institucion.Direccion" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Institucion.Telefono" class="control-label"></label>
-                <input asp-for="Institucion.Telefono" class="form-control" required />
+                <input asp-for="Institucion.Telefono" class="form-control" />
                 <span asp-validation-for="Institucion.Telefono" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -49,6 +49,20 @@
                 <span asp-validation-for="Institucion.PagWeb" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Institucion.TipoServicio" class="control-label"></label>
+                <Select asp-for="Institucion.TipoServicio" class="form-control" required>
+                  <option value ="0">Salud</option>
+                  <option value ="1">Víveres</option>
+                  <option value ="2">Comida preparada</option>
+                  <option value ="3">Empleo</option>
+                  <option value ="4">Alojamiento Temporal</option>
+                  <option value ="5">Alojamiento Permanente</option>
+                  <option value ="6">Educación</option>
+                  <option value ="7">Otro</option>
+                </select>  
+                <span asp-validation-for="Institucion.TipoServicio" class="text-danger"></span>
+            </div>
+                <div class="form-group">
                 <label asp-for="Institucion.Sector" class="control-label"></label>
                 <select asp-for="Institucion.Sector"  class="form-control" required>
     
@@ -60,23 +74,7 @@
                     </p>
                 </select>  
                 <span asp-validation-for="Institucion.Sector" class="text-danger"></span>          
-                </div>
-            <div class="form-group">
-                <label asp-for="Institucion.TipoServicio" class="control-label"></label>
-                <Select asp-for="Institucion.TipoServicio" class="form-control" required>
-                  <option value ="0">Salud</option>
-                  <option value ="1">Víveres</option>
-                  <option value ="2">Comida preparada</option>
-                  <option value ="3">Empleo</option>
-                  <option value ="4">Alojamiento Temporal</option>
-                  <option value ="5">Alojamiento Permanente</option>
-                  <option value ="6">Educación</option>
-                  <option value ="7">Otro</option>
-
-                </select>  
-
-                <span asp-validation-for="Institucion.TipoServicio" class="text-danger"></span>
-            </div>
+                </div>     
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
