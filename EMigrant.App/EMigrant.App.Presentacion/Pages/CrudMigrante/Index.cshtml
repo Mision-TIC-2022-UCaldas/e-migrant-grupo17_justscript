@@ -46,7 +46,14 @@
             <th>
                 @Html.DisplayNameFor(model => model.migrante[0].Ciudad)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.migrante[0].Usuario)
+            </th>     
+             <th>
+                @Html.DisplayNameFor(model => model.migrante[0].Clave)
+            </th>
+
+          <th></th>
         </tr>
     </thead>
     <tbody>
@@ -85,9 +92,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Ciudad)
             </td>
-            @* <td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Clave)
+            </td>
+            <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                @* <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td> *@
         </tr>

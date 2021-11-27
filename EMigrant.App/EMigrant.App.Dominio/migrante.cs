@@ -10,6 +10,9 @@ namespace EMigrant.App.Dominio{
         public AlojoPermanente AlojoPermanente{get;set;}
         public Educacion Educacion{get;set;}
         public AyudaLegal AyudaLegal{get;set;}
-        
+        public string Usuario {get;set;}
+
+        public string Clave {get;set;}
+
     }
 }    

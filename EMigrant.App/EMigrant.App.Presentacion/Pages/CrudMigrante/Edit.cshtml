@@ -7,7 +7,7 @@
 
 <h1>Edit</h1>
 
-<h4>migrante</h4>
+<h4>Migrante</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,38 +15,50 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="migrante.PaisOrigen" class="control-label"></label>
-                <input asp-for="migrante.PaisOrigen" class="form-control" />
+                <input asp-for="migrante.PaisOrigen" class="form-control" required/>
                 <span asp-validation-for="migrante.PaisOrigen" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="migrante.SituacionLaboral" class="control-label"></label>
-                <select asp-for="migrante.SituacionLaboral" class="form-control"></select>
+                <select asp-for="migrante.SituacionLaboral" class="form-control" required>
+                    <option value="0">Empleado</option>
+                    <option value="1">Independiente</option>
+                    <option value="2">Desempleado</option>
+                </select>
                 <span asp-validation-for="migrante.SituacionLaboral" class="text-danger"></span>
             </div>
+
             <input type="hidden" asp-for="migrante.Id" />
             <div class="form-group">
                 <label asp-for="migrante.Nombre" class="control-label"></label>
-                <input asp-for="migrante.Nombre" class="form-control" />
+                <input asp-for="migrante.Nombre" class="form-control" required/>
                 <span asp-validation-for="migrante.Nombre" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="migrante.Apellidos" class="control-label"></label>
-                <input asp-for="migrante.Apellidos" class="form-control" />
+                <input asp-for="migrante.Apellidos" class="form-control"required />
                 <span asp-validation-for="migrante.Apellidos" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="migrante.TipoDocumento" class="control-label"></label>
-                <select asp-for="migrante.TipoDocumento" class="form-control"></select>
+                <select asp-for="migrante.TipoDocumento" class="form-control" required>
+                    <option value="0">Cedula</option>
+                    <option value="1">Cedula de Extrangería</option>
+                    <option value="2">Pasaporte</option>
+                    <option value="3">Permiso</option>
+                </select>
                 <span asp-validation-for="migrante.TipoDocumento" class="text-danger"></span>
             </div>
+
+
             <div class="form-group">
                 <label asp-for="migrante.NumeroDocumento" class="control-label"></label>
-                <input asp-for="migrante.NumeroDocumento" class="form-control" />
+                <input asp-for="migrante.NumeroDocumento" class="form-control" required/>
                 <span asp-validation-for="migrante.NumeroDocumento" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="migrante.FNacimiento" class="control-label"></label>
-                <input asp-for="migrante.FNacimiento" class="form-control" />
+                <input asp-for="migrante.FNacimiento" class="form-control" required/>
                 <span asp-validation-for="migrante.FNacimiento" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -75,6 +87,8 @@
         </form>
     </div>
 </div>
+ 
+
 
 <div>
     <a asp-page="./Index">Back to List</a>
