@@ -35,7 +35,6 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
             {
                 return Page();
             }
-
             _context.migrantes.Add(migrante);
             await _context.SaveChangesAsync();
 

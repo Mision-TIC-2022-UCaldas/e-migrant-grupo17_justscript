@@ -23,12 +23,17 @@ namespace EMigrant.App.Presentacion.Pages
         [BindProperty]
         public string AlertaPassword { get; set; }
         [BindProperty]
-        public bool claveValidado { get; set; }
+        public bool PasswordValidado { get; set; }
 
 
         public void OnGet()
         {
-
+         /*   var passwordValidado = HttpContext.Session.GetString("passwordValidado");
+            if(passwordValidado != null){
+                PasswordValidado = true;
+            }else{
+                PasswordValidado = false;
+            }*/
 
         }
 
@@ -42,9 +47,10 @@ namespace EMigrant.App.Presentacion.Pages
                 {
                     Console.WriteLine("Si esta entrando al if"); //comprobación si entra al if
                     //HttpContext.Session.SetString("username", usuario);
-                    return RedirectToPage("../CrudMigrante/Index");
+                    HttpContext.Session.SetString("passwordValidado", migrante.Usuario.ToString());
+                    return RedirectToPage("../Index");
                 }else{
-
+                    AlertaPassword = "La Contraseña no es valida";
                     return Page();
                 }
             }else{

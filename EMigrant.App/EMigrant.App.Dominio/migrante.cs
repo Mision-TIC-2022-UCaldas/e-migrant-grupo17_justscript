@@ -13,6 +13,7 @@ namespace EMigrant.App.Dominio{
         public string Usuario {get;set;}
 
         public string Clave {get;set;}
-
+            
+        public string cat {get;set;}
     }
 }    
