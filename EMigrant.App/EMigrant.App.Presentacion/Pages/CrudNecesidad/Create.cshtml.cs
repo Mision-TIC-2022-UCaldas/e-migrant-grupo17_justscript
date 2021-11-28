@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Http;
 using EMigrant.App.Dominio;
 using EMigrant.App.Persistencia;
+using Microsoft.EntityFrameworkCore;
 
 namespace EMigrant.App.Presentacion.Pages.CrudNecesidad
 {
@@ -43,14 +44,38 @@ namespace EMigrant.App.Presentacion.Pages.CrudNecesidad
             {
                 return Page();
             }
-             //List<necesidades> listned = _context.migrantes.ToList();
-             // SeleccionNecesidad = new SelectList(listned, nameof(necesidades.DescripcionSalud));
+             //List<necesidades> listned = _context.migrantes.necesidadId;
+             //SeleccionNecesidad = new SelectList(listned, nameof(necesidades.DescripcionSalud));
 
 
              var usuario = HttpContext.Session.GetString("usernamemigrante");
              Console.WriteLine("este es:" + usuario);
-             migrante migrante = _context.migrantes.FirstOrDefault(e => e.Usuario == usuario);          
-             migrante.necesidadId = SeleccionNecesidad.Count();
+             migrante migrante = _context.migrantes.FirstOrDefault(e => e.Usuario == usuario); 
+
+             
+            //  _context.Necesidad.Count
+            var count_ = (from a in  _context.Necesidad.AsEnumerable() select a).Count();
+            Console.WriteLine(count_);
+
+
+             
+             //migrante.necesidadId = _context.Necesidad.Count();
+             if(migrante!=null){
+                 migrante.necesidadId = count_;
+             }
+             
+
+
+             
+            //  if(conta==null){
+            //      idnes = 0;
+            //  } else {
+            //      idnes = conta;
+            //  }
+             
+
+            
+            //  migrante.necesidadId = necesidades.id;
 
             _context.Necesidad.Add(necesidades);
             await _context.SaveChangesAsync();
