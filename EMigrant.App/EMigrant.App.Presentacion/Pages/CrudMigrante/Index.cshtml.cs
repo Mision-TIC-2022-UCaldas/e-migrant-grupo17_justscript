@@ -12,6 +12,12 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
 {
     public class IndexModel : PageModel
     {
+
+        public String NombreSort {get; set;}
+
+        public String VersionSort {get; set;}
+
+        public String Busqueda {get; set;}
         private readonly EMigrant.App.Persistencia.Conexion _context;
 
         public IndexModel(EMigrant.App.Persistencia.Conexion context)
@@ -21,9 +27,27 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
 
         public IList<migrante> migrante { get;set; }
 
-        public async Task OnGetAsync()
+        public void OnGet(string sortOrder, string Busqueda)
         {
-            migrante = await _context.migrantes.ToListAsync();
+            NombreSort = String.IsNullOrEmpty(sortOrder) ? "nombre_sort": "";
+            VersionSort = String.IsNullOrEmpty(sortOrder) ? "version_sort": "";
+            List<migrante> migranteOrder = _context.migrantes.ToList();
+
+            if(!String.IsNullOrEmpty(Busqueda)){
+                migranteOrder = _context.migrantes.Where(c => c.NumeroDocumento == Busqueda).ToList();
+            }
+            
+            if(NombreSort != null && NombreSort.Equals("nombre_sort")){
+                migranteOrder =  migranteOrder.OrderBy(c => c.NumeroDocumento).ToList();
+            }else if(VersionSort != null && VersionSort.Equals("version_sort")){
+                migranteOrder =  migranteOrder.OrderBy(c => c.NumeroDocumento).ToList();
+            }else{
+                migranteOrder =  migranteOrder.ToList();
+            } 
+            migrante = migranteOrder.ToList();    
+           
         }
-    }
+
+
+        }
 }

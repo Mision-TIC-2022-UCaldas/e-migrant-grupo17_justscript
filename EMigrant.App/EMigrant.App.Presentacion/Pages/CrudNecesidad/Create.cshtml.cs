@@ -50,7 +50,7 @@ namespace EMigrant.App.Presentacion.Pages.CrudNecesidad
              var usuario = HttpContext.Session.GetString("usernamemigrante");
              Console.WriteLine("este es:" + usuario);
              migrante migrante = _context.migrantes.FirstOrDefault(e => e.Usuario == usuario);          
-             migrante.necesidadId = SeleccionNecesidad.Count();
+             migrante.necesidadId = necesidades.id;
 
             _context.Necesidad.Add(necesidades);
             await _context.SaveChangesAsync();
