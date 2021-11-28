@@ -19,7 +19,7 @@ namespace EMigrant.App.Dominio{
 
         public string Clave {get;set;}
 
-        public string Cat {get;set;}
+        public string  DescripcionServicio {get;set;}
         
     
     }

@@ -19,7 +19,7 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
 
         public string VersionSort {get; set;}
 
-        public string Busqueda {get; set;}
+         public string Busqueda {get; set;}
 
         public string tpAllegado {get; set;}
 
@@ -76,7 +76,7 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
 
             migrante migrante3 = _context.migrantes.FirstOrDefault(e => e.NumeroDocumento == IdentificacionAllegado); 
             if(migrante3!=null){
-                allegado.UsuarioId =  migrante3.NumeroDocumento;
+            allegado.UsuarioId =  usuario;
 
             allegado.IdAllegado = migrante3.Id;
             allegado.IdentificacionAllegado = IdentificacionAllegado;

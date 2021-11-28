@@ -1,0 +1,75 @@
+﻿@page
+@model EMigrant.App.Presentacion.ServiciosModel
+@{
+    ViewData["Title"] = "Servicios";
+}
+<h1>Servicios</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Institucion[0].RazonSocial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Institucion[0].Ciudad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Institucion[0].Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Institucion[0].Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Institucion[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Institucion[0].PagWeb)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Institucion[0].Sector)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Institucion[0].TipoServicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Institucion[0].DescripcionServicio)
+            </th>           
+             <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Institucion) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RazonSocial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ciudad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PagWeb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sector)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoServicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionServicio)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
