@@ -27,14 +27,17 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
 
         public IList<migrante> migrante { get;set; }
 
-        public void OnGet(string sortOrder, string Busqueda)
+        public void OnGet(string sortOrder, string Busqueda, string allegadoId, string tpAllegado)
         {
+
+            Allegado allegado = new Allegado();
+
             NombreSort = String.IsNullOrEmpty(sortOrder) ? "nombre_sort": "";
             VersionSort = String.IsNullOrEmpty(sortOrder) ? "version_sort": "";
             List<migrante> migranteOrder = _context.migrantes.ToList();
 
             if(!String.IsNullOrEmpty(Busqueda)){
-                migranteOrder = _context.migrantes.Where(c => c.NumeroDocumento == Busqueda).ToList();
+                m igranteOrder = _context.migrantes.Where(c => c.NumeroDocumento == Busqueda).ToList();
             }
             
             if(NombreSort != null && NombreSort.Equals("nombre_sort")){
@@ -44,7 +47,11 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
             }else{
                 migranteOrder =  migranteOrder.ToList();
             } 
-            migrante = migranteOrder.ToList();    
+            migrante = migranteOrder.ToList();   
+
+
+
+
            
         }
 
