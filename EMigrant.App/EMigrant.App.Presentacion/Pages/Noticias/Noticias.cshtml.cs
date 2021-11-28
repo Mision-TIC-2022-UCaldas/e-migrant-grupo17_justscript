@@ -10,11 +10,11 @@ using EMigrant.App.Persistencia;
 
 namespace EMigrant.App.Presentacion.Pages
 {
-    public class InicioModel : PageModel
+    public class NoticiasModel : PageModel
     {
         public void OnGet()
         {
-            
+
         }
     }
 }
