@@ -4,14 +4,16 @@ using EMigrant.App.Persistencia;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EMigrant.App.Persistencia.Migrations
 {
     [DbContext(typeof(Conexion))]
-    partial class ConexionModelSnapshot : ModelSnapshot
+    [Migration("20211128204652_AvancesV34")]
+    partial class AvancesV34
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -110,8 +112,8 @@ namespace EMigrant.App.Persistencia.Migrations
                     b.Property<DateTime>("FechaInicio")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("InstitucionId")
-                        .HasColumnType("int");
+                    b.Property<string>("InstitucionId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MaxMigrantes")
                         .HasColumnType("nvarchar(max)");

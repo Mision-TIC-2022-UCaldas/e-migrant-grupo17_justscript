@@ -13,6 +13,8 @@ namespace  EMigrant.App.Persistencia{
 
         public DbSet<Allegado> Allegados {get;set;}
 
+        public DbSet<OfertaServicio> OfertaServicios {get;set;}
+
          protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

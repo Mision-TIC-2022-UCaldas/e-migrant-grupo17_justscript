@@ -5,6 +5,26 @@
 }
 <h1>Servicios</h1>
 
+<form asp-page="./Servicios" method="get">
+    <div class="form-group">
+        <label>Tipo Servicio:</label>
+            <Select name="Busqueda" value="@Model.Busqueda" required>
+                <option value ="Salud">Salud</option>
+                <option value ="Viveres">Víveres</option>
+                <option value ="Comida preparada">Comida preparada</option>
+                <option value ="Empleo">Empleo</option>
+                <option value ="Alojamiento Temporal">Alojamiento Temporal</option>
+                <option value ="Alojamiento Permanente">Alojamiento Permanente</option>
+                <option value ="Educacion">Educación</option>
+                <option value ="Otro">Otro</option>
+            </select>  
+        <input type="submit" value="Buscar" class="btn btn-primary"/>
+    </div>
+</form>
+
+
+
+
 <table class="table">
     <thead>
         <tr>
@@ -63,7 +83,9 @@
                 @Html.DisplayFor(modelItem => item.Sector)
             </td>
             <td>
+                <a asp-page="./Servicios" asp-route-sortOrder="@Model.VersionSort">
                 @Html.DisplayFor(modelItem => item.TipoServicio)
+                </a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DescripcionServicio)

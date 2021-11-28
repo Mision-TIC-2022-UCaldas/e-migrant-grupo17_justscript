@@ -4,14 +4,16 @@ using EMigrant.App.Persistencia;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EMigrant.App.Persistencia.Migrations
 {
     [DbContext(typeof(Conexion))]
-    partial class ConexionModelSnapshot : ModelSnapshot
+    [Migration("20211128202534_AvancesV33")]
+    partial class AvancesV33
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -96,7 +98,7 @@ namespace EMigrant.App.Persistencia.Migrations
 
             modelBuilder.Entity("EMigrant.App.Dominio.OfertaServicio", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
@@ -107,11 +109,11 @@ namespace EMigrant.App.Persistencia.Migrations
                     b.Property<DateTime>("FechaFinalizacion")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("FechaInicio")
+                    b.Property<DateTime>("FechaInicioServicio")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("InstitucionId")
-                        .HasColumnType("int");
+                    b.Property<string>("InstitucionId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MaxMigrantes")
                         .HasColumnType("nvarchar(max)");
@@ -119,7 +121,7 @@ namespace EMigrant.App.Persistencia.Migrations
                     b.Property<string>("NombreServicio")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
                     b.ToTable("OfertaServicios");
                 });
