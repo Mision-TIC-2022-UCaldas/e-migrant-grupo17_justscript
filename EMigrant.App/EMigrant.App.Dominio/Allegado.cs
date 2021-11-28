@@ -3,7 +3,7 @@ namespace EMigrant.App.Dominio{
     {
         public int id{get;set;}
 
-        public int EmigranteId {get;set;}
+        public string UsuarioId {get;set;}
 
         public int IdAllegado {get;set;}
 
