@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using EMigrant.App.Dominio;
 using EMigrant.App.Persistencia;
@@ -22,6 +23,14 @@ namespace EMigrant.App.Presentacion.Pages.CrudNecesidad
 
         [BindProperty]
         public necesidades necesidades { get; set; }
+
+
+
+        public SelectList SeleccionNecesidad;
+
+     
+        public string usuario {get;set;}
+
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -52,6 +61,15 @@ namespace EMigrant.App.Presentacion.Pages.CrudNecesidad
 
             try
             {
+             var usuario = HttpContext.Session.GetString("usernamemigrante");
+             Console.WriteLine("este es:" + usuario);
+             migrante migrante = _context.migrantes.FirstOrDefault(e => e.Usuario == usuario); 
+
+             if(migrante!=null){
+                 necesidades.UsuarioId = migrante.Id;
+             }
+             
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)

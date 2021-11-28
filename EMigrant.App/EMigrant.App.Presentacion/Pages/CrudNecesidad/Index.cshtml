@@ -58,6 +58,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.necesidades[0].PrioridadAlimentacion)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.necesidades[0].UsuarioId)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -107,8 +110,11 @@
                 @Html.DisplayFor(modelItem => item.PrioridadAlimentacion)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
+                @Html.DisplayFor(modelItem => item.UsuarioId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> 
+                <a asp-page="./Details" asp-route-id="@item.id">Details</a> 
                 <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
             </td>
         </tr>
