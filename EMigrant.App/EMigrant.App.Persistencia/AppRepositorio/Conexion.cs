@@ -9,6 +9,8 @@ namespace  EMigrant.App.Persistencia{
         public DbSet<migrante> migrantes {get;set;}
         public DbSet<Institucion> Instituciones {get;set;}
 
+        public DbSet<necesidades> Necesidad {get;set;}
+
          protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

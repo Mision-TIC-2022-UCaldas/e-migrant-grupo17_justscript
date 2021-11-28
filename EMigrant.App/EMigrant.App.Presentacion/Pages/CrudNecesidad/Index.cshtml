@@ -1,0 +1,114 @@
+@page
+@model EMigrant.App.Presentacion.Pages.CrudNecesidad.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.necesidades[0].DescripcionSalud)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.necesidades[0].PrioridadSalud)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.necesidades[0].DescripcionEmpleo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.necesidades[0].PrioridadEmpleo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.necesidades[0].DescripcionEducacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.necesidades[0].PrioridadEducacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.necesidades[0].DescripcionAyudaLegal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.necesidades[0].PrioridadAyudaLegal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.necesidades[0].DescripcionAlojaTemporal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.necesidades[0].PrioridadTemporal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.necesidades[0].DescripcionAlojaPermanente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.necesidades[0].PrioridadAlojaPermanente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.necesidades[0].DescripcionAlimentacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.necesidades[0].PrioridadAlimentacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.necesidades) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionSalud)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrioridadSalud)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionEmpleo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrioridadEmpleo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionEducacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrioridadEducacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionAyudaLegal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrioridadAyudaLegal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionAlojaTemporal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrioridadTemporal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionAlojaPermanente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrioridadAlojaPermanente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionAlimentacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrioridadAlimentacion)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

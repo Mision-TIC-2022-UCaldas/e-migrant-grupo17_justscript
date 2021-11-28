@@ -36,6 +36,9 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Login/Login">Login</a>
                         </li>*@
 
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/CrudNecesidad/Index">Agregar Necesidad</a>
+                        </li>
 
                          @if (@HttpContextAccessor.HttpContext.Session.GetString("usernamemigrante") != null){
                         <li class="nav-item">

@@ -4,14 +4,16 @@ using EMigrant.App.Persistencia;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EMigrant.App.Persistencia.Migrations
 {
     [DbContext(typeof(Conexion))]
-    partial class ConexionModelSnapshot : ModelSnapshot
+    [Migration("20211127224414_AvancesV10")]
+    partial class AvancesV10
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -119,60 +121,6 @@ namespace EMigrant.App.Persistencia.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("migrantes");
-                });
-
-            modelBuilder.Entity("EMigrant.App.Dominio.necesidades", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("DescripcionAlimentacion")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DescripcionAlojaPermanente")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DescripcionAlojaTemporal")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DescripcionAyudaLegal")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DescripcionEducacion")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DescripcionEmpleo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DescripcionSalud")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PrioridadAlimentacion")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PrioridadAlojaPermanente")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PrioridadAyudaLegal")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PrioridadEducacion")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PrioridadEmpleo")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PrioridadSalud")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PrioridadTemporal")
-                        .HasColumnType("int");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Necesidad");
                 });
 #pragma warning restore 612, 618
         }
