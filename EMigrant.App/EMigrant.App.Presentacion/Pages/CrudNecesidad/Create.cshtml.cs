@@ -28,6 +28,9 @@ namespace EMigrant.App.Presentacion.Pages.CrudNecesidad
         [BindProperty]
         public necesidades necesidades { get; set; }
 
+        public SelectList SeleccionNecesidad;
+
+     
         public string usuario {get;set;}
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
@@ -40,10 +43,14 @@ namespace EMigrant.App.Presentacion.Pages.CrudNecesidad
             {
                 return Page();
             }
-            var usuario = HttpContext.Session.GetString("usernamemigrante");
-            Console.WriteLine("este es:" + usuario);
-            migrante migrante = _context.migrantes.FirstOrDefault(e => e.Usuario == usuario);          
-            migrante.necesidadId = necesidades.id;
+             //List<necesidades> listned = _context.migrantes.ToList();
+             // SeleccionNecesidad = new SelectList(listned, nameof(necesidades.DescripcionSalud));
+
+
+             var usuario = HttpContext.Session.GetString("usernamemigrante");
+             Console.WriteLine("este es:" + usuario);
+             migrante migrante = _context.migrantes.FirstOrDefault(e => e.Usuario == usuario);          
+             migrante.necesidadId = SeleccionNecesidad.Count();
 
             _context.Necesidad.Add(necesidades);
             await _context.SaveChangesAsync();

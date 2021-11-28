@@ -15,7 +15,7 @@ namespace  EMigrant.App.Persistencia{
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data source = (localdb)\\MSSQLLocalDB; Initial Catalog = JustScript");
+                optionsBuilder.UseSqlServer("Data source = (localdb)\\MSSQLLocalDB; Initial Catalog = JustScript2");
             }
         }
 
