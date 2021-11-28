@@ -52,9 +52,15 @@ namespace EMigrant.App.Presentacion.Pages.CrudNecesidad
              Console.WriteLine("este es:" + usuario);
              migrante migrante = _context.migrantes.FirstOrDefault(e => e.Usuario == usuario); 
 
-             
+            var count_ = 0;
             //  _context.Necesidad.Count
-            var count_ = (from a in  _context.Necesidad.AsEnumerable() select a).Count();
+            var co = (from a in  _context.Necesidad.AsEnumerable() select a).Count();
+            
+            if(co > 0){
+                count_ = _context.Necesidad.Max(p => p.id);
+            }
+            
+           
             Console.WriteLine(count_);
 
 
@@ -62,11 +68,10 @@ namespace EMigrant.App.Presentacion.Pages.CrudNecesidad
              //migrante.necesidadId = _context.Necesidad.Count();
              if(migrante!=null){
                  migrante.necesidadId = count_;
+                 necesidades.UsuarioId = migrante.Id;
              }
              
-
-
-             
+            
             //  if(conta==null){
             //      idnes = 0;
             //  } else {
@@ -76,7 +81,6 @@ namespace EMigrant.App.Presentacion.Pages.CrudNecesidad
 
             
             //  migrante.necesidadId = necesidades.id;
-
             _context.Necesidad.Add(necesidades);
             await _context.SaveChangesAsync();
 

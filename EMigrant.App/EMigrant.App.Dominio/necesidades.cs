@@ -35,6 +35,6 @@ namespace EMigrant.App.Dominio{
         public PrioridadNecesidades PrioridadAlimentacion{get;set;}
 
 
-
+        public int UsuarioId {get;set;}
     }
 }    

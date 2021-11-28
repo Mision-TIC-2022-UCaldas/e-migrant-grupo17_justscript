@@ -11,5 +11,7 @@ namespace EMigrant.App.Dominio{
         public string Clave {get;set;}
         
         public int necesidadId {get;set;}
+
+        
     }
 }    
