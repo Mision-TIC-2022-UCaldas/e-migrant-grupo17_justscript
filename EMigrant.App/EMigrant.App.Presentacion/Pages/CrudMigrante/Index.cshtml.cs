@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using EMigrant.App.Dominio;
 using EMigrant.App.Persistencia;
+using System.Web;
 
 namespace EMigrant.App.Presentacion.Pages.CrudMigrante
 {
@@ -25,6 +26,8 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
         public string allegadoId {get; set;}
 
         public string IdentificacionAllegado {get;set;}
+
+        
 
 
         private readonly EMigrant.App.Persistencia.Conexion _context;
@@ -47,7 +50,9 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
 
             if(!String.IsNullOrEmpty(Busqueda)){
                 migranteOrder = _context.migrantes.Where(c => c.NumeroDocumento == Busqueda).ToList();
-                 IdentificacionAllegado = Busqueda;
+                IdentificacionAllegado = Busqueda;
+                HttpContext.Session.SetString("IdentificacionAllegado", Busqueda);
+                Console.WriteLine("IdentificacionAllegado en busqueda: "+IdentificacionAllegado);
             }
             
             if(NombreSort != null && NombreSort.Equals("nombre_sort")){
@@ -63,18 +68,29 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
             if(tpAllegado != null){
 
         
-             var usuario = HttpContext.Session.GetString("usernamemigrante");
-             Console.WriteLine("este es:" + usuario);
-             migrante migrante2 = _context.migrantes.FirstOrDefault(e => e.Usuario == usuario);  
-            
-            allegado.UsuarioId =  usuario;
-            allegado.IdAllegado = allegadoId;
-            allegado.IdentificacionAllegado = Busqueda;
+            var usuario = HttpContext.Session.GetString("usernamemigrante");
+            Console.WriteLine("este es:" + usuario);
+            migrante migrante2 = _context.migrantes.FirstOrDefault(e => e.Usuario == usuario); 
+            IdentificacionAllegado = HttpContext.Session.GetString("IdentificacionAllegado");
+            Console.WriteLine("IdentificacionAllegado: "+IdentificacionAllegado);
+
+            migrante migrante3 = _context.migrantes.FirstOrDefault(e => e.NumeroDocumento == IdentificacionAllegado); 
+            if(migrante3!=null){
+                allegado.UsuarioId =  migrante3.NumeroDocumento;
+
+            allegado.IdAllegado = migrante3.Id;
+            allegado.IdentificacionAllegado = IdentificacionAllegado;
             allegado.TipoAllegado = tpAllegado;
-            allegado.NombreAllegado = "Santiago";
+            allegado.NombreAllegado = migrante3.Nombre;
 
             _context.Allegados.Add(allegado);
             _context.SaveChanges();
+
+            }
+            
+             
+            
+            
 
             }
            
