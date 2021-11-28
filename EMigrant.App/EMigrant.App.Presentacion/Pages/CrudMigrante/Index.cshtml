@@ -15,12 +15,10 @@
         <input type="submit" value="Buscar" class="btn btn-primary"/>
     </div>
 </form>
-
-<h1>Index</h1>
 <form asp-page="./Index" method="get">
 <div class="form-group">
     <label class="control-label"></label>
-    <select class="form-control" value="@Model.allegadoId" required>
+    <select class="form-control" name="tpAllegado" value="@Model.tpAllegado" required>
         <option value="0">Amigo</option>
         <option value="1">Familiar</option>
     </select>

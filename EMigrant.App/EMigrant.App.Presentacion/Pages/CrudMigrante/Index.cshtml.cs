@@ -18,16 +18,22 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
         public String VersionSort {get; set;}
 
         public String Busqueda {get; set;}
+
+        public String tpAllegado {get; set;}
+
+        public String allegadoId {get; set;}
+
+
         private readonly EMigrant.App.Persistencia.Conexion _context;
 
         public IndexModel(EMigrant.App.Persistencia.Conexion context)
         {
             _context = context;
         }
-
+        
         public IList<migrante> migrante { get;set; }
 
-        public void OnGet(string sortOrder, string Busqueda, string allegadoId, string tpAllegado)
+        public void OnGet(string sortOrder, string Busqueda, int allegadoId, string tpAllegado)
         {
 
             Allegado allegado = new Allegado();
@@ -37,7 +43,7 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
             List<migrante> migranteOrder = _context.migrantes.ToList();
 
             if(!String.IsNullOrEmpty(Busqueda)){
-                m igranteOrder = _context.migrantes.Where(c => c.NumeroDocumento == Busqueda).ToList();
+                migranteOrder = _context.migrantes.Where(c => c.NumeroDocumento == Busqueda).ToList();
             }
             
             if(NombreSort != null && NombreSort.Equals("nombre_sort")){
@@ -49,7 +55,14 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
             } 
             migrante = migranteOrder.ToList();   
 
+            allegado.IdAllegado = 0;
+            allegado.IdentificacionAllegado = Busqueda;
+            allegado.TipoAllegado = tpAllegado;
+            allegado.NombreAllegado = "Santiago";
 
+            _context.Allegados.Add(allegado);
+            _context.SaveChanges();
+            
 
 
            

@@ -53,26 +53,29 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Login/CambioContraseña">Cambio Contraseña</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Noticias/Noticias">Crear Institucion</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Noticias/Noticias">Noticias</a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/CrudAllegado/Index">Allegados</a>
+                        </li>
                            }
                            
                          @if (@HttpContextAccessor.HttpContext.Session.GetString("usernameinstitucion") != null){
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                        
+                     <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Noticias/Noticias">Noticias</a>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Login/CambioContraseña">Cambio Contraseña</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/CrudInstitucion/Create">Crear Institucion</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Noticias/Noticias">Crear Institucion</a>
-                        </li>
-                        
+
+
                            }
 
 
