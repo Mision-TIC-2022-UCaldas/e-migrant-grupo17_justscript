@@ -14,7 +14,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Allegado[0].EmigranteId)
+                @Html.DisplayNameFor(model => model.Allegado[0].UsuarioId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Allegado[0].IdAllegado)
@@ -35,7 +35,7 @@
 @foreach (var item in Model.Allegado) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.EmigranteId)
+                @Html.DisplayFor(modelItem => item.UsuarioId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IdAllegado)

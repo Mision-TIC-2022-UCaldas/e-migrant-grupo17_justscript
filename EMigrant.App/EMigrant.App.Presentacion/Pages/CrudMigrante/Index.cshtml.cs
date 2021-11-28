@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 using EMigrant.App.Dominio;
 using EMigrant.App.Persistencia;
 
@@ -13,15 +14,17 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
     public class IndexModel : PageModel
     {
 
-        public String NombreSort {get; set;}
+        public string NombreSort {get; set;}
 
-        public String VersionSort {get; set;}
+        public string VersionSort {get; set;}
 
-        public String Busqueda {get; set;}
+        public string Busqueda {get; set;}
 
-        public String tpAllegado {get; set;}
+        public string tpAllegado {get; set;}
 
-        public String allegadoId {get; set;}
+        public string allegadoId {get; set;}
+
+        public string IdentificacionAllegado {get;set;}
 
 
         private readonly EMigrant.App.Persistencia.Conexion _context;
@@ -44,6 +47,7 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
 
             if(!String.IsNullOrEmpty(Busqueda)){
                 migranteOrder = _context.migrantes.Where(c => c.NumeroDocumento == Busqueda).ToList();
+                 IdentificacionAllegado = Busqueda;
             }
             
             if(NombreSort != null && NombreSort.Equals("nombre_sort")){
@@ -55,16 +59,24 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
             } 
             migrante = migranteOrder.ToList();   
 
-            allegado.IdAllegado = 0;
+
+            if(tpAllegado != null){
+
+        
+             var usuario = HttpContext.Session.GetString("usernamemigrante");
+             Console.WriteLine("este es:" + usuario);
+             migrante migrante2 = _context.migrantes.FirstOrDefault(e => e.Usuario == usuario);  
+            
+            allegado.UsuarioId =  usuario;
+            allegado.IdAllegado = allegadoId;
             allegado.IdentificacionAllegado = Busqueda;
             allegado.TipoAllegado = tpAllegado;
             allegado.NombreAllegado = "Santiago";
 
             _context.Allegados.Add(allegado);
             _context.SaveChanges();
-            
 
-
+            }
            
         }
 
