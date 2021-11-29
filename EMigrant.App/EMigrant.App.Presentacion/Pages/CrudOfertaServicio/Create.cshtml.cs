@@ -39,6 +39,7 @@ namespace EMigrant.App.Presentacion.Pages.CrudOfertaServicio
             {
                 return Page();
             }
+        
 
              var usuario = HttpContext.Session.GetString("usernameinstitucion");
              Console.WriteLine("este es:" + usuario);
