@@ -7,6 +7,9 @@ namespace EMigrant.App.Dominio{
         
         public int InstitucionId {get;set;}
 
+        public string Institucion {get;set;}
+
+        public string TipoServicio {get;set;}
         public string NombreServicio {get;set;}
 
         public string MaxMigrantes {get;set;}
@@ -15,6 +18,8 @@ namespace EMigrant.App.Dominio{
 
         public DateTime FechaFinalizacion {get;set;}  
 
+
+        
          public string EstadoServicio {get;set;}   
     }
 }

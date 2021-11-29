@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Http;
 using EMigrant.App.Dominio;
 using EMigrant.App.Persistencia;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 
 namespace EMigrant.App.Presentacion.Pages.CrudOfertaServicio
@@ -26,10 +25,10 @@ namespace EMigrant.App.Presentacion.Pages.CrudOfertaServicio
         {
             return Page();
         }
+        [BindProperty]
+         public string usuario {get;set;}
 
-        [BindProperty]     
-          public string usuario {get;set;}
-
+        [BindProperty]
         public OfertaServicio OfertaServicio { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
@@ -44,18 +43,14 @@ namespace EMigrant.App.Presentacion.Pages.CrudOfertaServicio
              var usuario = HttpContext.Session.GetString("usernameinstitucion");
              Console.WriteLine("este es:" + usuario);
              Institucion institucion = _context.Instituciones.FirstOrDefault(e => e.Usuario == usuario);          
-             Console.WriteLine(institucion.Id);
+             Console.WriteLine("id es:" + institucion.Id);
+             Console.WriteLine(OfertaServicio.NombreServicio);
 
-            if(OfertaServicio != null){
-                OfertaServicio.InstitucionId = institucion.Id;
-                _context.OfertaServicios.Add(OfertaServicio);
-                await _context.SaveChangesAsync();
-
-            }
-
-            // OfertaServicio.InstitucionId = 1;
-            // _context.OfertaServicios.Add(OfertaServicio);
-            // await _context.SaveChangesAsync();
+            OfertaServicio.Institucion = institucion.RazonSocial;
+            OfertaServicio.TipoServicio = institucion.TipoServicio;
+            OfertaServicio.InstitucionId = institucion.Id;
+            _context.OfertaServicios.Add(OfertaServicio);
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

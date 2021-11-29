@@ -1,0 +1,89 @@
+﻿
+@page
+@model EMigrant.App.Presentacion.ServiciosModel
+@{
+}
+
+<h1>Servicios</h1>
+<form asp-page="./Servicios" method="get">
+    <div class="form-group">
+        <label>Tipo Servicio:</label>
+            <Select name="Busqueda" value="@Model.Busqueda" required>
+                <option value ="Salud">Salud</option>
+                <option value ="Viveres">Víveres</option>
+                <option value ="Comida preparada">Comida preparada</option>
+                <option value ="Empleo">Empleo</option>
+                <option value ="Alojamiento Temporal">Alojamiento Temporal</option>
+                <option value ="Alojamiento Permanente">Alojamiento Permanente</option>
+                <option value ="Educacion">Educación</option>
+                <option value ="Otro">Otro</option>
+            </select>  
+        <input type="submit" value="Buscar" class="btn btn-primary"/>
+    </div>
+</form>
+
+
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OfertaServicio[0].NombreServicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfertaServicio[0].Institucion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfertaServicio[0].TipoServicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfertaServicio[0].MaxMigrantes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfertaServicio[0].FechaInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfertaServicio[0].FechaFinalizacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfertaServicio[0].EstadoServicio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.OfertaServicio) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreServicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Institucion)
+            </td>
+            <td>
+            <a asp-page="./Servicios" asp-route-sortOrder="@Model.VersionSort" >
+                @Html.DisplayFor(modelItem => item.TipoServicio)
+            </a>    
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxMigrantes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaFinalizacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoServicio)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+

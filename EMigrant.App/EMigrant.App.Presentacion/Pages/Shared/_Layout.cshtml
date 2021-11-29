@@ -62,8 +62,11 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/CrudAllegado/Index">Allegados</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/CrudInstitucion/Servicios">Consultar Servicios</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/CrudOfertaServicio/Servicios">Consultar Servicios</a>
                         </li>
+                       <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Login/CerrarSesion">Cerrar Sesion</a>
+                        </li> 
                            }
                            
                          @if (@HttpContextAccessor.HttpContext.Session.GetString("usernameinstitucion") != null){
@@ -79,6 +82,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/CrudOfertaServicio/Index">Agregar Servicio</a>
+                        </li> 
+                       <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Login/CerrarSesion">Cerrar Sesion</a>
                         </li> 
 
                            }

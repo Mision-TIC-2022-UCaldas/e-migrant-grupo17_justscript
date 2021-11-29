@@ -15,37 +15,32 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="OfertaServicio.id" />
             <div class="form-group">
-                <label asp-for="OfertaServicio.InstitucionId" class="control-label"></label>
-                <input asp-for="OfertaServicio.InstitucionId" class="form-control" />
-                <span asp-validation-for="OfertaServicio.InstitucionId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="OfertaServicio.NombreServicio" class="control-label"></label>
-                <input asp-for="OfertaServicio.NombreServicio" class="form-control" />
+                <input asp-for="OfertaServicio.NombreServicio" class="form-control" required/>
                 <span asp-validation-for="OfertaServicio.NombreServicio" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="OfertaServicio.MaxMigrantes" class="control-label"></label>
-                <input asp-for="OfertaServicio.MaxMigrantes" class="form-control" />
+                <input asp-for="OfertaServicio.MaxMigrantes" class="form-control" required/>
                 <span asp-validation-for="OfertaServicio.MaxMigrantes" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="OfertaServicio.FechaInicio" class="control-label"></label>
-                <input asp-for="OfertaServicio.FechaInicio" class="form-control" />
+                <input asp-for="OfertaServicio.FechaInicio" class="form-control" required/>
                 <span asp-validation-for="OfertaServicio.FechaInicio" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="OfertaServicio.FechaFinalizacion" class="control-label"></label>
-                <input asp-for="OfertaServicio.FechaFinalizacion" class="form-control" />
+                <input asp-for="OfertaServicio.FechaFinalizacion" class="form-control" required/>
                 <span asp-validation-for="OfertaServicio.FechaFinalizacion" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="OfertaServicio.EstadoServicio" class="control-label"></label>
                 <select asp-for="OfertaServicio.EstadoServicio" class="form-control" required>
-                    <option value="Activos">Activos</option>
+                    <option value="Activo">Activo</option>
                     <option value="Cerrados">Cerrados</option>
-                    <option value="Con Cupo">Con Cupo</option>
-                    <option value="Sin cupoo">Sin cupoo</option>
+                    <option value="Con Cupos">Con Cupos</option>
+                    <option value="Sin Cupo">Sin Cupo</option>
                 </select>
                 <span asp-validation-for="OfertaServicio.EstadoServicio" class="text-danger"></span>
             </div>

@@ -52,14 +52,14 @@
             <div class="form-group">
                 <label asp-for="Institucion.TipoServicio" class="control-label"></label>
                 <Select asp-for="Institucion.TipoServicio" class="form-control" required>
-                  <option value ="0">Salud</option>
-                  <option value ="1">Víveres</option>
-                  <option value ="2">Comida preparada</option>
-                  <option value ="3">Empleo</option>
-                  <option value ="4">Alojamiento Temporal</option>
-                  <option value ="5">Alojamiento Permanente</option>
-                  <option value ="6">Educación</option>
-                  <option value ="7">Otro</option>
+                  <option value ="Salud">Salud</option>
+                  <option value ="Viveres">Víveres</option>
+                  <option value ="Comida Preparada">Comida preparada</option>
+                  <option value ="Empleo">Empleo</option>
+                  <option value ="Alojamiento Temporal">Alojamiento Temporal</option>
+                  <option value ="Alojamiento Permanente">Alojamiento Permanente</option>
+                  <option value ="Educacion">Educación</option>
+                  <option value ="Otro">Otro</option>
                 </select>  
                 <span asp-validation-for="Institucion.TipoServicio" class="text-danger"></span>
             </div>
