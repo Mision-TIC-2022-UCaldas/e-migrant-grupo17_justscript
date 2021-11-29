@@ -44,6 +44,7 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
 
            Allegado allegado = new Allegado();
 
+
             NombreSort = String.IsNullOrEmpty(sortOrder) ? "nombre_sort": "";
             VersionSort = String.IsNullOrEmpty(sortOrder) ? "version_sort": "";
             List<migrante> migranteOrder = _context.migrantes.ToList();
