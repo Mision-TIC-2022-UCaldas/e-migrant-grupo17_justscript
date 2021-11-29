@@ -15,7 +15,6 @@ namespace EMigrant.App.Presentacion
     public class ServiciosModel : PageModel
     {
 
-
         public string NombreSort { get; set; }
 
         public string VersionSort { get; set; }
@@ -28,7 +27,20 @@ namespace EMigrant.App.Presentacion
 
         public string IdentificacionAllegado { get; set; }
 
-        public string usernamemigrante {get;set;}
+        // public int id { get; set; }
+
+        // public string Institucion { get; set; }
+
+        // public string NombreServicio { get; set; }
+
+        // public string FechaInicio { get; set; }
+
+        // public string allegadoId { get; set; }
+
+        // public string IdentificacionAllegado { get; set; }
+
+
+        public SolicitudServicio SolicitudServicio{get;set;}
 
         private readonly EMigrant.App.Persistencia.Conexion _context;
 
@@ -38,6 +50,28 @@ namespace EMigrant.App.Presentacion
         }
 
         public IList<OfertaServicio> OfertaServicio{ get; set; }
+
+        public IActionResult OnPost(int id, string Institucion, string NombreServicio, DateTime FechaInicio, DateTime FechaFinalizacion, string EstadoServicio)
+        {
+             var usuario = HttpContext.Session.GetString("usernamemigrante");
+             Console.WriteLine("este es:" + usuario);
+             migrante migrante = _context.migrantes.FirstOrDefault(e => e.Usuario == usuario);          
+             SolicitudServicio solicitudServicio = new SolicitudServicio();
+
+             solicitudServicio.emigranteId = migrante.Id;
+             solicitudServicio.InstitucionId = id;
+             solicitudServicio.Usuario = usuario;
+             solicitudServicio.Institucion = Institucion;
+             solicitudServicio.NombreServicio = NombreServicio;
+             solicitudServicio.FechaInicio = FechaInicio;
+             solicitudServicio.FechaFinalizacion = FechaFinalizacion;
+             solicitudServicio.EstadoServicio = EstadoServicio;
+
+            _context.SolicitudServicios.Add(solicitudServicio);
+            _context.SaveChanges();
+            return RedirectToPage("./Index");
+        }
+
 
 
         public void OnGet(string sortOrder, string Busqueda)

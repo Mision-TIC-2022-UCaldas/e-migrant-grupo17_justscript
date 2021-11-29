@@ -16,11 +16,13 @@ namespace  EMigrant.App.Persistencia{
         public DbSet<OfertaServicio> OfertaServicios {get;set;}
         public DbSet<Emergencia> Emergencias {get;set;}
 
+        public DbSet<SolicitudServicio> SolicitudServicios {get;set;}
+
          protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data source = (localdb)\\MSSQLLocalDB; Initial Catalog = JustScript2");
+                optionsBuilder.UseSqlServer("Data source = (localdb)\\MSSQLLocalDB; Initial Catalog = JustScript8");
             }
         }
 

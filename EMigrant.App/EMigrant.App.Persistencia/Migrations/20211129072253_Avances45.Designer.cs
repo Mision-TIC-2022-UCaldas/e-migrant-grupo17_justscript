@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EMigrant.App.Persistencia.Migrations
 {
     [DbContext(typeof(Conexion))]
-    [Migration("20211129003245_Avances40")]
-    partial class Avances40
+    [Migration("20211129072253_Avances45")]
+    partial class Avances45
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,9 @@ namespace EMigrant.App.Persistencia.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<string>("Correo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("IdAllegado")
                         .HasColumnType("int");
 
@@ -35,6 +38,9 @@ namespace EMigrant.App.Persistencia.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NombreAllegado")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefono")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TipoAllegado")
@@ -152,6 +158,9 @@ namespace EMigrant.App.Persistencia.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TipoServicio")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Usuario")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");

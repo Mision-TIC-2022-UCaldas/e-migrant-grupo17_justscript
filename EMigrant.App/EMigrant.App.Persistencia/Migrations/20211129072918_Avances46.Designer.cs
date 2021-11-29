@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EMigrant.App.Persistencia.Migrations
 {
     [DbContext(typeof(Conexion))]
-    [Migration("20211129004138_Avances42")]
-    partial class Avances42
+    [Migration("20211129072918_Avances46")]
+    partial class Avances46
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,9 @@ namespace EMigrant.App.Persistencia.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<string>("Correo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("IdAllegado")
                         .HasColumnType("int");
 
@@ -35,6 +38,9 @@ namespace EMigrant.App.Persistencia.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NombreAllegado")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefono")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TipoAllegado")
@@ -154,9 +160,48 @@ namespace EMigrant.App.Persistencia.Migrations
                     b.Property<string>("TipoServicio")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Usuario")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("id");
 
                     b.ToTable("OfertaServicios");
+                });
+
+            modelBuilder.Entity("EMigrant.App.Dominio.SolicitudServicio", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("EstadoServicio")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("FechaFinalizacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaInicio")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Institucion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("InstitucionId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NombreServicio")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Usuario")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("emigranteId")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.ToTable("SolicitudServicios");
                 });
 
             modelBuilder.Entity("EMigrant.App.Dominio.migrante", b =>
