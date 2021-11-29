@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EMigrant.App.Persistencia.Migrations
 {
     [DbContext(typeof(Conexion))]
-    [Migration("20211128212434_AvancesV35")]
-    partial class AvancesV35
+    [Migration("20211129003245_Avances40")]
+    partial class Avances40
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,6 +46,33 @@ namespace EMigrant.App.Persistencia.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Allegados");
+                });
+
+            modelBuilder.Entity("EMigrant.App.Dominio.Emergencia", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("DescripcionEmergencia")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("atendidoPor")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ciudad")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("estadoEmergencia")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("reportadaPor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Emergencias");
                 });
 
             modelBuilder.Entity("EMigrant.App.Dominio.Institucion", b =>
@@ -112,6 +139,9 @@ namespace EMigrant.App.Persistencia.Migrations
                     b.Property<DateTime>("FechaInicio")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Institucion")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("InstitucionId")
                         .HasColumnType("int");
 
@@ -119,6 +149,9 @@ namespace EMigrant.App.Persistencia.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NombreServicio")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TipoServicio")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");

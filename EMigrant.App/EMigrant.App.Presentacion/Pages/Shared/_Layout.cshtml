@@ -37,9 +37,9 @@
                         </li>*@
 
                   
-                        <li class="nav-item">
+                        @* <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/CrudInstitucion/Create">Crear Institucion</a>
-                        </li>
+                        </li> *@
 
 
                          @if (@HttpContextAccessor.HttpContext.Session.GetString("usernamemigrante") != null){
@@ -50,8 +50,6 @@
                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/CrudNecesidad/Index">Agregar Necesidad</a>
                         </li>
-
-
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Login/CambioContraseña">Cambio Contraseña</a>
                         </li>
@@ -64,20 +62,18 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/CrudOfertaServicio/Servicios">Consultar Servicios</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/CrudEmergencia/Index">Informar Emergencia</a>
+                        </li>
                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Login/CerrarSesion">Cerrar Sesion</a>
                         </li> 
                            }
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/CrudEmergencia/Index">Informar Emergencia</a>
-                        </li>
+
                            
                            
-                         @if (@HttpContextAccessor.HttpContext.Session.GetString("usernameinstitucion") != null){
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
+                         @if (@HttpContextAccessor.HttpContext.Session.GetString("usernameinstitucion") != null)
                      <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Noticias/Noticias">Noticias</a>
                         </li>

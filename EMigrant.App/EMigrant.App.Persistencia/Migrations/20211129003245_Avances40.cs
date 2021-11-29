@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EMigrant.App.Persistencia.Migrations
 {
-    public partial class migracionEmergencia : Migration
+    public partial class Avances40 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,7 +31,6 @@ namespace EMigrant.App.Persistencia.Migrations
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DescripcionEmergencia = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PrioridadNecesidades = table.Column<int>(type: "int", nullable: false),
                     reportadaPor = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ciudad = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     estadoEmergencia = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -59,7 +58,7 @@ namespace EMigrant.App.Persistencia.Migrations
                     TipoServicio = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Usuario = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Clave = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Cat = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    DescripcionServicio = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -118,6 +117,26 @@ namespace EMigrant.App.Persistencia.Migrations
                 {
                     table.PrimaryKey("PK_Necesidad", x => x.id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "OfertaServicios",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    InstitucionId = table.Column<int>(type: "int", nullable: false),
+                    Institucion = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TipoServicio = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NombreServicio = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MaxMigrantes = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FechaInicio = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FechaFinalizacion = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EstadoServicio = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OfertaServicios", x => x.id);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -136,6 +155,9 @@ namespace EMigrant.App.Persistencia.Migrations
 
             migrationBuilder.DropTable(
                 name: "Necesidad");
+
+            migrationBuilder.DropTable(
+                name: "OfertaServicios");
         }
     }
 }
