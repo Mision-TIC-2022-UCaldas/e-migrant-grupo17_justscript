@@ -16,6 +16,8 @@ namespace  EMigrant.App.Persistencia{
         public DbSet<OfertaServicio> OfertaServicios {get;set;}
         public DbSet<Emergencia> Emergencias {get;set;}
 
+        public DbSet<SolicitudServicio> SolicitudServicios {get;set;}
+
          protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
