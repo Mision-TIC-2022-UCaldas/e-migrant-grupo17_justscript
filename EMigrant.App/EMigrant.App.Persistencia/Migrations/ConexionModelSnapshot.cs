@@ -46,6 +46,33 @@ namespace EMigrant.App.Persistencia.Migrations
                     b.ToTable("Allegados");
                 });
 
+            modelBuilder.Entity("EMigrant.App.Dominio.Emergencia", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("DescripcionEmergencia")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("atendidoPor")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ciudad")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("estadoEmergencia")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("reportadaPor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Emergencias");
+                });
+
             modelBuilder.Entity("EMigrant.App.Dominio.Institucion", b =>
                 {
                     b.Property<int>("Id")

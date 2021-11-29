@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EMigrant.App.Persistencia.Migrations
 {
     [DbContext(typeof(Conexion))]
-    [Migration("20211128144652_AvancesV23")]
-    partial class AvancesV23
+    [Migration("20211128212523_migracionEmergencias3")]
+    partial class migracionEmergencias3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,6 +46,33 @@ namespace EMigrant.App.Persistencia.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Allegados");
+                });
+
+            modelBuilder.Entity("EMigrant.App.Dominio.Emergencia", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("DescripcionEmergencia")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("atendidoPor")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ciudad")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("estadoEmergencia")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("reportadaPor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Emergencias");
                 });
 
             modelBuilder.Entity("EMigrant.App.Dominio.Institucion", b =>

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EMigrant.App.Persistencia.Migrations
 {
     [DbContext(typeof(Conexion))]
-    [Migration("20211128141256_AvancesV22")]
-    partial class AvancesV22
+    [Migration("20211128211727_migracionEmergencias2")]
+    partial class migracionEmergencias2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,9 +28,6 @@ namespace EMigrant.App.Persistencia.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("EmigranteId")
-                        .HasColumnType("int");
-
                     b.Property<int>("IdAllegado")
                         .HasColumnType("int");
 
@@ -43,9 +40,39 @@ namespace EMigrant.App.Persistencia.Migrations
                     b.Property<string>("TipoAllegado")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UsuarioId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("id");
 
                     b.ToTable("Allegados");
+                });
+
+            modelBuilder.Entity("EMigrant.App.Dominio.Emergencia", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("DescripcionEmergencia")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("atendidoPor")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ciudad")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("estadoEmergencia")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("reportadaPor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Emergencias");
                 });
 
             modelBuilder.Entity("EMigrant.App.Dominio.Institucion", b =>

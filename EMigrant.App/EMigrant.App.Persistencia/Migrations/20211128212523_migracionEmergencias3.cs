@@ -2,7 +2,7 @@
 
 namespace EMigrant.App.Persistencia.Migrations
 {
-    public partial class AvancesV8 : Migration
+    public partial class migracionEmergencias3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -1,0 +1,64 @@
+@page
+@model EMigrant.App.Presentacion.Pages_CrudEmergencia.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Emergencia</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Emergencia.id" />
+            <div class="form-group">
+                <label asp-for="Emergencia.DescripcionEmergencia" class="control-label"></label>
+                <input asp-for="Emergencia.DescripcionEmergencia" class="form-control" />
+                <span asp-validation-for="Emergencia.DescripcionEmergencia" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Emergencia.reportadaPor" class="control-label"></label>
+                <input asp-for="Emergencia.reportadaPor" class="form-control" />
+                <span asp-validation-for="Emergencia.reportadaPor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Emergencia.ciudad" class="control-label"></label>
+                <input asp-for="Emergencia.ciudad" class="form-control" />
+                <span asp-validation-for="Emergencia.ciudad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Emergencia.estadoEmergencia" class="control-label"></label>
+                @* <input asp-for="Emergencia.estadoEmergencia" class="form-control" /> *@
+                <select asp-for="Emergencia.estadoEmergencia" class="form-control">
+                    <option value="En Espera">En Espera</option>
+                    <option value="Solucionado">Solucionado</option>
+                </select>
+                <span asp-validation-for="Emergencia.estadoEmergencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Emergencia.atendidoPor" class="control-label"></label>
+                <select asp-for="Emergencia.atendidoPor" class="form-control">
+                    <option value="0">No atendido</option>
+                    <option value="1">Policia</option>
+                    <option value="2">Entidad Salud</option>
+                </select>
+                <span asp-validation-for="Emergencia.atendidoPor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
