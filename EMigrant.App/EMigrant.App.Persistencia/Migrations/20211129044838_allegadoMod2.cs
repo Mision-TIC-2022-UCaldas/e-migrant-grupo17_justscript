@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EMigrant.App.Persistencia.Migrations
 {
-    public partial class Avances40 : Migration
+    public partial class allegadoMod2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,6 +16,8 @@ namespace EMigrant.App.Persistencia.Migrations
                     UsuarioId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IdAllegado = table.Column<int>(type: "int", nullable: false),
                     NombreAllegado = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Correo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IdentificacionAllegado = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TipoAllegado = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
