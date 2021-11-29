@@ -23,10 +23,6 @@
 </form>
 
 
-
-
-
-
 <table class="table">
     <thead>
         <tr>
@@ -35,6 +31,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.OfertaServicio[0].Institucion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfertaServicio[0].Usuario)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.OfertaServicio[0].TipoServicio)
@@ -55,32 +54,39 @@
         </tr>
     </thead>
     <tbody>
+
+        
 @foreach (var item in Model.OfertaServicio) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreServicio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Institucion)
-            </td>
-            <td>
-            <a asp-page="./Servicios" asp-route-sortOrder="@Model.VersionSort" >
-                @Html.DisplayFor(modelItem => item.TipoServicio)
-            </a>    
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaxMigrantes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaInicio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaFinalizacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EstadoServicio)
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreServicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Institucion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario)
+        </td>            
+        <td>
+        <a asp-page="./Servicios" asp-route-sortOrder="@Model.VersionSort" >
+            @Html.DisplayFor(modelItem => item.TipoServicio)
+        </a>    
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxMigrantes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaFinalizacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstadoServicio)
+        </td>
+
+    </tr> 
+    
 }
     </tbody>
 </table>

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using EMigrant.App.Dominio;
 using EMigrant.App.Persistencia;
+using Microsoft.AspNetCore.Http;
+
 
 namespace EMigrant.App.Presentacion
 {
@@ -26,6 +28,8 @@ namespace EMigrant.App.Presentacion
 
         public string IdentificacionAllegado { get; set; }
 
+        public string usernamemigrante {get;set;}
+
         private readonly EMigrant.App.Persistencia.Conexion _context;
 
         public ServiciosModel(EMigrant.App.Persistencia.Conexion context)
@@ -36,12 +40,17 @@ namespace EMigrant.App.Presentacion
         public IList<OfertaServicio> OfertaServicio{ get; set; }
 
 
-
-
         public void OnGet(string sortOrder, string Busqueda)
         {
 
-            Allegado allegado = new Allegado();
+            var usernamemigrante = HttpContext.Session.GetString("usernameinstitucion");
+            if(!String.IsNullOrEmpty(usernamemigrante)){
+                Console.WriteLine("usernamemigrante: "+usernamemigrante);
+                OfertaServicio =  _context.OfertaServicios.Where(c => c.Institucion == usernamemigrante).ToList();
+            } else {
+                OfertaServicio = _context.OfertaServicios.ToList();
+            }
+              //Allegado = await _context.Allegados.ToListAsync();
 
             NombreSort = String.IsNullOrEmpty(sortOrder) ? "nombre_sort" : "";
             VersionSort = String.IsNullOrEmpty(sortOrder) ? "version_sort" : "";

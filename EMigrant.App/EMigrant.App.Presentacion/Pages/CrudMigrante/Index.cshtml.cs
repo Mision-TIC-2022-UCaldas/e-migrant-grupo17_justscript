@@ -42,7 +42,7 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
         public void OnGet(string sortOrder, string Busqueda, int allegadoId, string tpAllegado)
         {
 
-           
+           Allegado allegado = new Allegado();
 
             NombreSort = String.IsNullOrEmpty(sortOrder) ? "nombre_sort": "";
             VersionSort = String.IsNullOrEmpty(sortOrder) ? "version_sort": "";

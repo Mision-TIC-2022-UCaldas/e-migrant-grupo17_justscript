@@ -8,11 +8,15 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EMigrant.App.Dominio;
 using EMigrant.App.Persistencia;
+using Microsoft.AspNetCore.Http;
 
 namespace EMigrant.App.Presentacion.Pages.CrudOfertaServicio
 {
     public class EditModel : PageModel
     {
+        public string usuario{get;set;}
+
+        public Institucion institucion {get;set;}
         private readonly EMigrant.App.Persistencia.Conexion _context;
 
         public EditModel(EMigrant.App.Persistencia.Conexion context)
@@ -52,6 +56,21 @@ namespace EMigrant.App.Presentacion.Pages.CrudOfertaServicio
 
             try
             {
+
+
+             var usuario = HttpContext.Session.GetString("usernameinstitucion");
+             Console.WriteLine("este es:" + usuario);
+             Institucion institucion = _context.Instituciones.FirstOrDefault(e => e.Usuario == usuario);          
+             Console.WriteLine("id es:" + institucion.Id);
+             Console.WriteLine(OfertaServicio.NombreServicio);
+
+            OfertaServicio.Institucion = institucion.RazonSocial;
+            OfertaServicio.Usuario = usuario;
+            OfertaServicio.TipoServicio = institucion.TipoServicio;
+            OfertaServicio.InstitucionId = institucion.Id;
+
+
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)

@@ -5,16 +5,33 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Servicios</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
+<form asp-page="./index" method="get">
+    <div class="form-group">
+        <label>Tipo Servicio:</label>
+            <Select name="Busqueda" value="@Model.Busqueda" required>
+                <option value="Activo">Activo</option>
+                <option value="Cerrados">Cerrados</option>
+                <option value="Con Cupos">Con Cupos</option>
+                <option value="Sin Cupo">Sin Cupo</option>
+        <input type="submit" value="Buscar" class="btn btn-primary"/>
+    </div>
+</form>
+
+
 <table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.OfertaServicio[0].InstitucionId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfertaServicio[0].Institucion)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.OfertaServicio[0].NombreServicio)
@@ -29,16 +46,28 @@
                 @Html.DisplayNameFor(model => model.OfertaServicio[0].FechaFinalizacion)
             </th>
             <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.VersionSort" >
                 @Html.DisplayNameFor(model => model.OfertaServicio[0].EstadoServicio)
+                </a>
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
+
+@using Microsoft.AspNetCore.Http
+
+@inject IHttpContextAccessor HttpContextAccessor
+
 @foreach (var item in Model.OfertaServicio) {
+    @if(@HttpContextAccessor.HttpContext.Session.GetString("usernameinstitucion") == item.Usuario)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.InstitucionId)
+            </td>    
+            <td>
+                @Html.DisplayFor(modelItem => item.Institucion)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.NombreServicio)
@@ -61,6 +90,7 @@
                 <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
             </td>
         </tr>
+    }
 }
     </tbody>
 </table>

@@ -47,6 +47,7 @@ namespace EMigrant.App.Presentacion.Pages.CrudOfertaServicio
              Console.WriteLine(OfertaServicio.NombreServicio);
 
             OfertaServicio.Institucion = institucion.RazonSocial;
+            OfertaServicio.Usuario = usuario;
             OfertaServicio.TipoServicio = institucion.TipoServicio;
             OfertaServicio.InstitucionId = institucion.Id;
             _context.OfertaServicios.Add(OfertaServicio);

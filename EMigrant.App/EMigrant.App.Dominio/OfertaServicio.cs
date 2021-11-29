@@ -9,6 +9,8 @@ namespace EMigrant.App.Dominio{
 
         public string Institucion {get;set;}
 
+        public string Usuario {get;set;}
+
         public string TipoServicio {get;set;}
         public string NombreServicio {get;set;}
 
