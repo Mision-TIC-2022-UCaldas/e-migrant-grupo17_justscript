@@ -1,7 +1,7 @@
 ﻿@page
 @model EMigrant.App.Presentacion.SolicitudServicioModel
 @{
-    
+
 }
 
 <h1>Servicios</h1>
@@ -36,9 +36,13 @@
         </tr>
     </thead>
     <tbody>
+@using Microsoft.AspNetCore.Http
 
+@inject IHttpContextAccessor HttpContextAccessor
         
 @foreach (var item in Model.SolicitudServicio) {
+    @if(@HttpContextAccessor.HttpContext.Session.GetString("usernamemigrante") == item.Usuario)
+    {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.emigranteId)
@@ -65,6 +69,7 @@
             @Html.DisplayFor(modelItem => item.EstadoServicio)
         </td>
     </tr> 
+    }
 }
     </tbody>
 </table>
