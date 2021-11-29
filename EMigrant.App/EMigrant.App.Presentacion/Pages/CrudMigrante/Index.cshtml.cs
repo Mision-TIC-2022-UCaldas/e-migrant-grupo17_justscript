@@ -80,8 +80,9 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
 
             allegado.IdAllegado = migrante3.Id;
             allegado.IdentificacionAllegado = IdentificacionAllegado;
-            //allegado.Correo = migrante3;
-            //allegado.Telefono = migrante3;
+            allegado.Correo = migrante3.Correo;
+            allegado.Telefono = migrante3.Telefono;
+           
             allegado.TipoAllegado = tpAllegado;
             allegado.NombreAllegado = migrante3.Nombre;
 

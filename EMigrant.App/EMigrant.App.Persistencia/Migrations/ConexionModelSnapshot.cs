@@ -26,6 +26,9 @@ namespace EMigrant.App.Persistencia.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<string>("Correo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("IdAllegado")
                         .HasColumnType("int");
 
@@ -33,6 +36,9 @@ namespace EMigrant.App.Persistencia.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NombreAllegado")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefono")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TipoAllegado")
