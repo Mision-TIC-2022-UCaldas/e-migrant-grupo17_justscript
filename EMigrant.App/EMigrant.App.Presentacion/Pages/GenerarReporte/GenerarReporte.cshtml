@@ -1,0 +1,118 @@
+﻿@page
+@model EMigrant.App.Presentacion.Pages.GenerarReporteModel
+@{
+    
+}
+<body>
+    <h3>Fecha de inicio del reporte: 01/01/2021 00:00:00 a.m.</h3>
+    <h3>Fecha de finalizacion del reporte: @DateTime.Now</h3>
+    <br>
+    <br>
+    <h3>Entidades: </h3>
+    <table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Institucion[0].RazonSocial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Institucion[0].Nit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Institucion[0].Ciudad)
+            </th>
+            <th>
+                Numero de migrantes atendidos
+            </th>
+
+            <th>
+                Número de servicios disponibles
+            </th>
+            
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@{int i = 0;}
+@foreach (var item in Model.Institucion) {
+    
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RazonSocial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ciudad)
+            </td>
+            <td>
+
+            </td>
+
+            <td>
+                @Model.numerosServiciosDisponibles[i]
+            </td>
+            
+
+           
+
+
+
+            
+        </tr>
+
+        i++;
+        
+}
+    </tbody>
+    </table>
+
+    <h3></h3>
+    <br>
+    <br>
+    <h3>Tipo de Servicio: </h3>
+    <table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tipo
+            </th>
+            
+            <th>
+                Cantidad
+            </th>
+            
+            
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@{int j = 0;}
+@foreach (var item in Model.servicios) {
+    
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item)
+            </td>
+            
+
+            <td>
+                @Model.numeroServiciosTipo[j]
+            </td>
+            
+
+
+            
+        </tr>
+
+        j++;
+        
+}
+    </tbody>
+    </table>
+
+
+</body>
