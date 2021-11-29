@@ -1,0 +1,78 @@
+﻿@page
+@model EMigrant.App.Presentacion.SolicitudServicioModel
+@{
+
+}
+
+<h1>Servicios</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SolicitudServicio[0].emigranteId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SolicitudServicio[0].InstitucionId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SolicitudServicio[0].Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SolicitudServicio[0].Institucion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SolicitudServicio[0].NombreServicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SolicitudServicio[0].FechaInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SolicitudServicio[0].FechaFinalizacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SolicitudServicio[0].EstadoServicio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@using Microsoft.AspNetCore.Http
+
+@inject IHttpContextAccessor HttpContextAccessor
+        
+@foreach (var item in Model.SolicitudServicio) {
+    @if(@HttpContextAccessor.HttpContext.Session.GetString("usernamemigrante") == item.Usuario)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.emigranteId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InstitucionId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario)
+        </td>            
+        <td>
+            @Html.DisplayFor(modelItem => item.Institucion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreServicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaFinalizacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstadoServicio)
+        </td>
+    </tr> 
+    }
+}
+    </tbody>
+</table>
+
+
+
