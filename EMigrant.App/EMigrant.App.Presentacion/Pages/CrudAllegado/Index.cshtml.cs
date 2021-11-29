@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using EMigrant.App.Dominio;
 using EMigrant.App.Persistencia;
+using Microsoft.AspNetCore.Http;
 
 namespace EMigrant.App.Presentacion.Pages.CrudAllegado
 {
@@ -23,7 +24,14 @@ namespace EMigrant.App.Presentacion.Pages.CrudAllegado
 
         public async Task OnGetAsync()
         {
-            Allegado = await _context.Allegados.ToListAsync();
+            var usernamemigrante = HttpContext.Session.GetString("usernamemigrante");
+            if(!String.IsNullOrEmpty(usernamemigrante)){
+                Console.WriteLine("usernamemigrante: "+usernamemigrante);
+                Allegado = await _context.Allegados.Where(c => c.UsuarioId == usernamemigrante).ToListAsync();
+            } else {
+                Allegado = await _context.Allegados.ToListAsync();
+            }
+              //Allegado = await _context.Allegados.ToListAsync();
         }
     }
 }

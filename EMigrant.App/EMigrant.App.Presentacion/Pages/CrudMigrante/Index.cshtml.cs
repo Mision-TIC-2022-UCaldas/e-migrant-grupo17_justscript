@@ -42,7 +42,7 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
         public void OnGet(string sortOrder, string Busqueda, int allegadoId, string tpAllegado)
         {
 
-            Allegado allegado = new Allegado();
+           
 
             NombreSort = String.IsNullOrEmpty(sortOrder) ? "nombre_sort": "";
             VersionSort = String.IsNullOrEmpty(sortOrder) ? "version_sort": "";
@@ -80,6 +80,8 @@ namespace EMigrant.App.Presentacion.Pages.CrudMigrante
 
             allegado.IdAllegado = migrante3.Id;
             allegado.IdentificacionAllegado = IdentificacionAllegado;
+            //allegado.Correo = migrante3;
+            //allegado.Telefono = migrante3;
             allegado.TipoAllegado = tpAllegado;
             allegado.NombreAllegado = migrante3.Nombre;
 

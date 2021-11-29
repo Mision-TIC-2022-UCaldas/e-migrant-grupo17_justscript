@@ -9,6 +9,9 @@ namespace EMigrant.App.Dominio{
 
         public string NombreAllegado {get;set;}
 
+        public string Telefono {get;set;}
+
+        public string Correo {get;set;}
         public string IdentificacionAllegado {get;set;}
 
         public string TipoAllegado {get;set;}
