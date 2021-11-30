@@ -1,0 +1,60 @@
+@page
+@model EMigrant.App.Presentacion.Pages.CrudOfertaServicio.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>OfertaServicio</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="OfertaServicio.id" />
+            <div class="form-group">
+                <label asp-for="OfertaServicio.NombreServicio" class="control-label"></label>
+                <input asp-for="OfertaServicio.NombreServicio" class="form-control" required/>
+                <span asp-validation-for="OfertaServicio.NombreServicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OfertaServicio.MaxMigrantes" class="control-label"></label>
+                <input asp-for="OfertaServicio.MaxMigrantes" class="form-control" required/>
+                <span asp-validation-for="OfertaServicio.MaxMigrantes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OfertaServicio.FechaInicio" class="control-label"></label>
+                <input asp-for="OfertaServicio.FechaInicio" class="form-control" required/>
+                <span asp-validation-for="OfertaServicio.FechaInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OfertaServicio.FechaFinalizacion" class="control-label"></label>
+                <input asp-for="OfertaServicio.FechaFinalizacion" class="form-control" required/>
+                <span asp-validation-for="OfertaServicio.FechaFinalizacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OfertaServicio.EstadoServicio" class="control-label"></label>
+                <select asp-for="OfertaServicio.EstadoServicio" class="form-control" required>
+                    <option value="Activo">Activo</option>
+                    <option value="Cerrados">Cerrados</option>
+                    <option value="Con Cupos">Con Cupos</option>
+                    <option value="Sin Cupo">Sin Cupo</option>
+                </select>
+                <span asp-validation-for="OfertaServicio.EstadoServicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,43 @@
+@page
+@model EMigrant.App.Presentacion.Pages_CrudEmergencia.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Emergencia</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Emergencia.DescripcionEmergencia" class="control-label"></label>
+                <input asp-for="Emergencia.DescripcionEmergencia" class="form-control" required/>
+                <span asp-validation-for="Emergencia.DescripcionEmergencia" class="text-danger"></span>
+            </div>
+            
+            
+            <div class="form-group">
+                <label asp-for="Emergencia.ciudad" class="control-label"></label>
+                <input asp-for="Emergencia.ciudad" class="form-control" required/>
+                <span asp-validation-for="Emergencia.ciudad" class="text-danger"></span>
+            </div>
+            
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

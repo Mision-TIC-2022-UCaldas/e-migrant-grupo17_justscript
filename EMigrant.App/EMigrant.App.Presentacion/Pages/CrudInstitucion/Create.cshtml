@@ -1,0 +1,106 @@
+@page
+@model EMigrant.App.Presentacion.Pages.CrudInstitucion.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Institucion</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Institucion.RazonSocial" class="control-label"></label>
+                <input asp-for="Institucion.RazonSocial" class="form-control" required />
+                <span asp-validation-for="Institucion.RazonSocial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Institucion.Nit" class="control-label"></label>
+                <input asp-for="Institucion.Nit" class="form-control" required />
+                <span  class="text-danger">@Model.Error</span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Institucion.Ciudad" class="control-label"></label>
+                <input asp-for="Institucion.Ciudad" class="form-control" required/>
+                <span asp-validation-for="Institucion.Ciudad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Institucion.Direccion" class="control-label"></label>
+                <input asp-for="Institucion.Direccion" class="form-control"required />
+                <span asp-validation-for="Institucion.Direccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Institucion.Telefono" class="control-label"></label>
+                <input asp-for="Institucion.Telefono" class="form-control"required />
+                <span asp-validation-for="Institucion.Telefono" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Institucion.Email" class="control-label"></label>
+                <input asp-for="Institucion.Email" class="form-control" />
+                <span asp-validation-for="Institucion.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Institucion.PagWeb" class="control-label"></label>
+                <input asp-for="Institucion.PagWeb" class="form-control" />
+                <span asp-validation-for="Institucion.PagWeb" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Institucion.TipoServicio" class="control-label"></label>
+                <Select asp-for="Institucion.TipoServicio" class="form-control" required>
+                  <option value ="Salud">Salud</option>
+                  <option value ="Viveres">Víveres</option>
+                  <option value ="Comida Preparada">Comida preparada</option>
+                  <option value ="Empleo">Empleo</option>
+                  <option value ="Alojamiento Temporal">Alojamiento Temporal</option>
+                  <option value ="Alojamiento Permanente">Alojamiento Permanente</option>
+                  <option value ="Educacion">Educación</option>
+                  <option value ="Otro">Otro</option>
+                </select>  
+                <span asp-validation-for="Institucion.TipoServicio" class="text-danger"></span>
+            </div>
+                <div class="form-group">
+                <label asp-for="Institucion.Sector" class="control-label"></label>
+                <select asp-for="Institucion.Sector"  class="form-control" required>
+    
+                 <option value ="0">Público</option>
+                    <option value ="1">Privado</option>
+                    <option value ="2">Sin ánimo de lucro</option>
+                    <option value ="3">No gubernamental</option>
+                    <option value ="4">Otro</option> 
+                    </p>
+                </select>  
+                <span asp-validation-for="Institucion.Sector" class="text-danger"></span>          
+                </div>    
+                <div class="form-group">
+                    <label asp-for="Institucion.Usuario" class="control-label"></label>
+                    <input asp-for="Institucion.Usuario" class="form-control" required />
+                    <span asp-validation-for="Institucion.Usuario" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Institucion.Clave" class="control-label"></label>
+                    <input asp-for="Institucion.Clave" type = "password" class="form-control" required/>
+                    <span asp-validation-for="Institucion.Clave" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Institucion.DescripcionServicio" class="control-label"></label>
+                    <input asp-for="Institucion.DescripcionServicio" class="form-control" required/>
+                    <span asp-validation-for="Institucion.DescripcionServicio" class="text-danger"></span>
+                </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

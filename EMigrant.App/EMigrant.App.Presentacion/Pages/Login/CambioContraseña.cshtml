@@ -1,0 +1,65 @@
+﻿@page
+@model EMigrant.App.Presentacion.Pages.CambioContraseñaModel
+@{
+}
+<head>
+    <meta charset="utf-8">
+    <title>Cambio Contraseña</title>
+    <meta name="author" content="JustScript">
+    <meta name="description" content="Cambio Contraseña">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="site.css" rel="stylesheet" type="text/css" />
+   
+</head>
+
+<body>
+    
+    <div style="width:1000px;margin-left: auto;margin-right: auto;">
+        
+    <main>
+    <div class="row">
+	<form method="post">
+
+        <nav id="nav2">
+            <div class="col-md-4">
+            <section  id="mainNota2">
+            <h2>ACTUALIZAR CONTRASEÑA</h2>
+            
+	            </section>
+        </div>
+        </nav>
+
+        <nav id="nav3">
+        <div class="col-md-4">
+            
+            <section  id="mainLogin2">
+                    <div class="form-group">
+                        <label class="control-label" >Nueva Contraseña:</label>
+                        <input asp-for="password" type="password" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" >Confirmar Contraseña:</label>
+                        <input asp-for="RepeatPassword" type="password" class="form-control"/>
+                        <span class="text-danger">@Model.MensajePassword</span>					
+                    </div>                    
+
+                    <div class = "form-group"> 
+                        <input type="submit" value="Aceptar"/>
+                    </div>
+                    </section>
+        </div>
+        </nav>
+    </form>
+
+         
+        
+            </div>
+        </main>
+        
+    </div>
+
+    <footer>
+        <small>JustScript</small>
+    </footer>
+
+</body>

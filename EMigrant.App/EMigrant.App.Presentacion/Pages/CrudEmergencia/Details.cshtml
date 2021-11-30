@@ -1,0 +1,50 @@
+@page
+@model EMigrant.App.Presentacion.Pages_CrudEmergencia.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Emergencia</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Emergencia.DescripcionEmergencia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Emergencia.DescripcionEmergencia)
+        </dd>
+        
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Emergencia.reportadaPor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Emergencia.reportadaPor)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Emergencia.ciudad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Emergencia.ciudad)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Emergencia.estadoEmergencia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Emergencia.estadoEmergencia)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Emergencia.atendidoPor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Emergencia.atendidoPor)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Emergencia.id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

@@ -1,0 +1,135 @@
+@page
+@model EMigrant.App.Presentacion.Pages.CrudNecesidad.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>necesidades</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="necesidades.id" />
+            <div class="form-group">
+                <label asp-for="necesidades.DescripcionSalud" class="control-label"></label>
+                <input asp-for="necesidades.DescripcionSalud" class="form-control" />
+                <span asp-validation-for="necesidades.DescripcionSalud" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="necesidades.PrioridadSalud" class="control-label"></label>
+                <select asp-for="necesidades.PrioridadSalud" class="form-control" >
+                    <option value="0">-</option>
+                    <option value="1">Baja</option>
+                    <option value="2">Media</option>
+                    <option value="3">Alta</option>
+                </select>
+                <span asp-validation-for="necesidades.PrioridadSalud" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="necesidades.DescripcionEmpleo" class="control-label"></label>
+                <input asp-for="necesidades.DescripcionEmpleo" class="form-control" />
+                <span asp-validation-for="necesidades.DescripcionEmpleo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="necesidades.PrioridadEmpleo" class="control-label"></label>
+                <select asp-for="necesidades.PrioridadEmpleo" class="form-control" >
+                    <option value="0">-</option>
+                    <option value="1">Baja</option>
+                    <option value="2">Media</option>
+                    <option value="3">Alta</option>
+                </select>
+                <span asp-validation-for="necesidades.PrioridadEmpleo" class="text-danger"></span>
+            </div> 
+            <div class="form-group">
+                <label asp-for="necesidades.DescripcionEducacion" class="control-label"></label>
+                <input asp-for="necesidades.DescripcionEducacion" class="form-control" />
+                <span asp-validation-for="necesidades.DescripcionEducacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="necesidades.PrioridadEducacion" class="control-label"></label>
+                <select asp-for="necesidades.PrioridadEducacion" class="form-control" >
+                    <option value="0">-</option>
+                    <option value="1">Baja</option>
+                    <option value="2">Media</option>
+                    <option value="3">Alta</option>
+                </select>
+                <span asp-validation-for="necesidades.PrioridadEducacion" class="text-danger"></span>
+            </div> 
+            <div class="form-group">
+                <label asp-for="necesidades.DescripcionAyudaLegal" class="control-label"></label>
+                <input asp-for="necesidades.DescripcionAyudaLegal" class="form-control" />
+                <span asp-validation-for="necesidades.DescripcionAyudaLegal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="necesidades.PrioridadAyudaLegal" class="control-label"></label>
+                <select asp-for="necesidades.PrioridadAyudaLegal" class="form-control" >
+                    <option value="0">-</option>
+                    <option value="1">Baja</option>
+                    <option value="2">Media</option>
+                    <option value="3">Alta</option>
+                </select>
+                <span asp-validation-for="necesidades.PrioridadAyudaLegal" class="text-danger"></span>
+            </div> 
+            <div class="form-group">
+                <label asp-for="necesidades.DescripcionAlojaTemporal" class="control-label"></label>
+                <input asp-for="necesidades.DescripcionAlojaTemporal" class="form-control" />
+                <span asp-validation-for="necesidades.DescripcionAlojaTemporal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="necesidades.PrioridadTemporal" class="control-label"></label>
+                <select asp-for="necesidades.PrioridadTemporal" class="form-control" >
+                    <option value="0">-</option>
+                    <option value="1">Baja</option>
+                    <option value="2">Media</option>
+                    <option value="3">Alta</option>
+                </select>
+                <span asp-validation-for="necesidades.PrioridadTemporal" class="text-danger"></span>
+            </div> 
+            <div class="form-group">
+                <label asp-for="necesidades.DescripcionAlojaPermanente" class="control-label"></label>
+                <input asp-for="necesidades.DescripcionAlojaPermanente" class="form-control" />
+                <span asp-validation-for="necesidades.DescripcionAlojaPermanente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="necesidades.PrioridadAlojaPermanente" class="control-label"></label>
+                <select asp-for="necesidades.PrioridadAlojaPermanente" class="form-control" >
+                    <option value="0">-</option>
+                    <option value="1">Baja</option>
+                    <option value="2">Media</option>
+                    <option value="3">Alta</option>
+                </select>
+                <span asp-validation-for="necesidades.PrioridadAlojaPermanente" class="text-danger"></span>
+            </div> 
+            <div class="form-group">
+                <label asp-for="necesidades.DescripcionAlimentacion" class="control-label"></label>
+                <input asp-for="necesidades.DescripcionAlimentacion" class="form-control" />
+                <span asp-validation-for="necesidades.DescripcionAlimentacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="necesidades.PrioridadAlimentacion" class="control-label"></label>
+                <select asp-for="necesidades.PrioridadAlimentacion" class="form-control" >
+                    <option value="0">-</option>
+                    <option value="1">Baja</option>
+                    <option value="2">Media</option>
+                    <option value="3">Alta</option>
+                </select>
+                <span asp-validation-for="necesidades.PrioridadAlimentacion" class="text-danger"></span>
+            </div> 
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

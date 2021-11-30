@@ -1,0 +1,141 @@
+@page
+@model EMigrant.App.Presentacion.Pages.CrudMigrante.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<form asp-page="./Index" method="get">
+    <div class="form-group">
+        <label>Cedula:</label>
+        <input type="text" name="Busqueda" value="@Model.Busqueda" /> 
+        <input type="submit" value="Buscar" class="btn btn-primary"/>
+    </div>
+</form>
+<div>
+
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.migrante[0].PaisOrigen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.migrante[0].SituacionLaboral)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.migrante[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.migrante[0].Apellidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.migrante[0].TipoDocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.migrante[0].NumeroDocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.migrante[0].FNacimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.migrante[0].Correo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.migrante[0].Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.migrante[0].Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.migrante[0].Ciudad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.migrante[0].Usuario)
+            </th>     
+             <th>
+                @Html.DisplayNameFor(model => model.migrante[0].Clave)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.migrante[0].necesidadId)
+            </th>
+          <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.migrante) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaisOrigen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SituacionLaboral)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoDocumento)
+            </td>
+            <td>
+             <a asp-page="./Index" asp-route-sortOrder="@Model.VersionSort">
+                @Html.DisplayFor(modelItem => item.NumeroDocumento)
+            </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FNacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ciudad)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Clave)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.necesidadId)
+            </td>
+            <td>
+                <form asp-page="./Index" method="get">
+                <div class="form-group">
+                    <div class="container">
+                      <input type="hidden" name="allegadoId" value="@Model.allegadoId" />   
+                    <label class="control-label"></label>
+                    <select class="form-control" name="tpAllegado" value="@Model.tpAllegado" required>
+                        <option value="0">Amigo</option>
+                        <option value="1">Familiar</option>
+                    </select>   
+                <input type="hidden" name="allegadoId" value="@Model.allegadoId" />
+                <input type="submit" value="Agregar" class="btn btn-primary"/>
+                    </div>
+                    </div>
+                </form>
+             </td>
+            <td>
+                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+               <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td> 
+        </tr>
+
+}
+    </tbody>
+</table>

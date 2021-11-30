@@ -1,0 +1,54 @@
+@page
+@model EMigrant.App.Presentacion.Pages.CrudAllegado.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Allegado</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Allegado.UsuarioId" class="control-label"></label>
+                <input asp-for="Allegado.UsuarioId" class="form-control" />
+                <span asp-validation-for="Allegado.UsuarioId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Allegado.IdAllegado" class="control-label"></label>
+                <input asp-for="Allegado.IdAllegado" class="form-control" />
+                <span asp-validation-for="Allegado.IdAllegado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Allegado.NombreAllegado" class="control-label"></label>
+                <input asp-for="Allegado.NombreAllegado" class="form-control" />
+                <span asp-validation-for="Allegado.NombreAllegado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Allegado.IdentificacionAllegado" class="control-label"></label>
+                <input asp-for="Allegado.IdentificacionAllegado" class="form-control" />
+                <span asp-validation-for="Allegado.IdentificacionAllegado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Allegado.TipoAllegado" class="control-label"></label>
+                <input asp-for="Allegado.TipoAllegado" class="form-control" />
+                <span asp-validation-for="Allegado.TipoAllegado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
